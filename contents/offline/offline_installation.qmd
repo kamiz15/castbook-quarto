@@ -24,10 +24,10 @@ Installation of [**Github Desktop**](https://desktop.github.com/) is **recommend
 
 ![The [**Github Desktop**](https://desktop.github.com/) set-up](images/off_f1.png){#fig-of1 fig-align="center" width="40%"}
 
-After the successful installation of Github Desktop, ``open`` the Github Desktop Application and click on ``clone a repository``. Under URL, paste the URL ``https://github.com/CAST-IIT.git`` as seen in the screenshot below. This can also be alternately seen under CAST-IIT/CAST at Personal-CAST-development github.com, under ``Code``.
+After the successful installation of Github Desktop, ``open`` the Github Desktop Application and click on ``clone a repository``. Under URL, paste the URL ``https://github.com/kamiz15/Groundwater-Contamination-Website.git`` as seen in the screenshot below. This can also be alternately seen under kamiz15/Groundwater-Contamination-Website on GitHub, under ``Code``.
 
 ::: {.callout-note}
-**Personal CAST** is the default branch/master branch and for OFFLINE use. **Professional branch** is used for the ONLINE **CAST**. 
+The default branch of the current repository is used for local/offline setup.
 :::
 
 ![Cloning CAST source repository from Github](images/off_f2.png){#fig-of2 fig-align="center" width="50%"}

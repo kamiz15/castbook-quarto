@@ -17,7 +17,7 @@ the containers.
 ## 1. Get the code
 
 ```bash
-git clone --branch Personal-CAST-development https://github.com/CAST-IIT/CAST.git cast
+git clone https://github.com/kamiz15/Groundwater-Contamination-Website.git cast
 cd cast
 ```
 

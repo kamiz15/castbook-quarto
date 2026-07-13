@@ -24,4 +24,4 @@ The rendered site is written to `_book/`, which is intentionally ignored by git.
 
 The CAST application code referenced by the local installation instructions is available at:
 
-https://github.com/CAST-IIT/CAST
+https://github.com/kamiz15/Groundwater-Contamination-Website

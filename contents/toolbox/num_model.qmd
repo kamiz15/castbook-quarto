@@ -19,11 +19,11 @@ The code snippets below show calling of MODFLOW and MT3DMS executables in CAST. 
 ```
 
 The above code is in CAST directory:
-``CAST/groundwater/NumericalModel/numericalModel.py``
+``numerical_models.py``
 
 The standard method of simulating Transport problems using MODFLOW/MT3DMS is also used in CAST. In the (standard) approach, **flow** simulations using MODFLOW is simulated first. The **transport** simulation is followed after the successful simulation of flow simulation. 
 
-The code snippet below shows the implementation of **flow** simulation in CAST. Complete source-code is accessible from [here](https://github.com/CAST-IIT/CAST/blob/Personal-CAST-development/groundwater/NumericalModel/numericalModel.py).
+The code snippet below shows the implementation of **flow** simulation in CAST. Complete source-code is accessible from [here](https://github.com/kamiz15/Groundwater-Contamination-Website/blob/main/numerical_models.py).
 
 ```python 
 

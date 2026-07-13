@@ -85,7 +85,7 @@ Histogram plots of CAST also attempts to provide limited types of _continuous di
 
 ![Histogram and underlying distribution type of site parameters.](images/db_f8.png){#fig-db8 fig-align="center" width="70%"}
 
-The distribution fitting of the Histogram in CAST is performed using the open-source Scipy library [scipy.stats](https://docs.scipy.org/doc/scipy/reference/stats.html). The code snippets (from CAST below) shows the implementation of Python code for the distribution fits. The complete codes are available [here](https://github.com/CAST-IIT/CAST/blob/Personal-CAST-development/groundwater/databasePlots.py)
+The distribution fitting of the Histogram in CAST is performed using the open-source Scipy library [scipy.stats](https://docs.scipy.org/doc/scipy/reference/stats.html). The code snippets (from CAST below) shows the implementation of Python code for the distribution fits. The complete codes are available [here](https://github.com/kamiz15/Groundwater-Contamination-Website/blob/main/plot_functions.py)
 
 ```python
 def create_histogram(histogramFeature, table_data, index, parameter):
@@ -120,7 +120,7 @@ Scatter Plots provide an option to compare among a pair of site parameters. This
 
 Scatter plots are fundamental in developing models. Therefore, in CAST in addition to the visualization, different fit-types: ``Exponential``, ``Linear``, ``Power 2``, ``Power 3``) are provided between different site parameters (e.g., ``Aquifer Thickness``, ``Electron Donor``) with the ``Plume Length`` (see @fig-db9). Plume Length in CAST is the main output quantity. The main output of the Models used in CAST (see [](../an_model/an_model.qmd)) is maximum plume length or $L_{max}$.
 
-Data fits in CAST is performed using the open-source Scipy library [scipy.optimize](https://docs.scipy.org/doc/scipy/reference/optimize.html). In particular the function provided by ``curve_fit`` in scipy.optimize is used for the fitting. Fit parameters including $R^2$ value are currently not provided as intention in the current version of CAST data-analysis is to only present the first-hand information of data. Users are provided option to _download_ data in editable format, which simplifies full-scale data analysis. The code snippet below shows the **fit** implemented in CAST. Complete code can be obtained from [here](https://github.com/CAST-IIT/CAST/blob/Personal-CAST-development/groundwater/scatterplot.py).
+Data fits in CAST is performed using the open-source Scipy library [scipy.optimize](https://docs.scipy.org/doc/scipy/reference/optimize.html). In particular the function provided by ``curve_fit`` in scipy.optimize is used for the fitting. Fit parameters including $R^2$ value are currently not provided as intention in the current version of CAST data-analysis is to only present the first-hand information of data. Users are provided option to _download_ data in editable format, which simplifies full-scale data analysis. The code snippet below shows the **fit** implemented in CAST. Current plotting utilities are available [here](https://github.com/kamiz15/Groundwater-Contamination-Website/blob/main/plot_functions.py).
 
 ```python
     if feature == 'Exponential':
