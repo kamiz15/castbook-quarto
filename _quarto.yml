@@ -12,7 +12,7 @@ book:
   author: "P. K. Yadav, S. Birla, V. Baliga, A. Köhler, K. Aryal, I. Wani, and others"
   favicon: images/logo/icon1.png
   search: true
-  repo-url: https://github.com/prabhasyadav/CASTbook
+  repo-url: https://github.com/kamiz15/castbook-quarto
   repo-actions: [issue]
   sidebar:
     logo: images/logo/icon1.png
