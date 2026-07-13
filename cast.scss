@@ -1,0 +1,111 @@
+/*-- scss:defaults --*/
+// CAST design system — light theme (mirrors the app's static/styles.css)
+
+$font-family-sans-serif: Inter, "Source Sans 3", system-ui, "Segoe UI", Roboto, Arial, sans-serif !default;
+
+// Brand accent (single blue, from the app)
+$brand-500: #1f72cd;
+$brand-600: #155da9;
+$brand-700: #114b88;
+$brand-900: #0b2c4f;
+
+$primary:   $brand-600;
+$link-color: $brand-600;
+
+// Surfaces
+$body-bg:        #e9edf2;   // app --bg
+$body-color:     #16212e;   // app --text
+$panel-bg:       #eef1f5;   // app --panel
+$border-color:   #e3e8ef;   // app --panel-border
+$muted:          #5b6b7f;
+
+// Quarto sidebar / navbar tuned to the app
+$navbar-bg:        $brand-900;
+$navbar-fg:        #eaf1fb;
+$sidebar-bg:       #eef1f5;
+$code-block-bg:    #f4f6fa;
+$border-radius:    10px;
+
+/*-- scss:rules --*/
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body { font-size: 1rem; line-height: 1.6; }
+h1, h2, h3, h4 { letter-spacing: -0.01em; font-weight: 650; }
+
+// Page title + chapter H2s carry a blue accent bar
+.quarto-title h1.title { color: #0b2c4f; }
+h2 {
+  border-bottom: 2px solid #dfecfc;
+  padding-bottom: 0.25rem;
+}
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px; height: 1.05em;
+  margin-right: 0.55rem;
+  vertical-align: -0.15em;
+  background: #1f72cd;
+  border-radius: 2px;
+}
+h3 { color: #114b88; }
+
+// Kicker / section eyebrow text in brand blue
+.kicker, .column-margin strong { color: #155da9; }
+
+// Cards / callouts read like the app's bordered panels
+.callout { border-radius: 10px; }
+.callout.callout-note { border-left-color: #1f72cd; }
+.callout.callout-note > .callout-header { background-color: #f0f6fe; }
+
+// Sidebar: blue active item with an accent rail
+div.sidebar-item-container .active,
+.sidebar-navigation .active > a { color: #155da9 !important; font-weight: 650; }
+.sidebar-navigation .active {
+  border-left: 3px solid #1f72cd;
+  margin-left: -3px;
+}
+.sidebar-title, .sidebar .quarto-sidebar-title { color: #0b2c4f; }
+
+// Tables: tinted blue header, like the app's data panels
+table > thead, .table > thead {
+  background: #f0f6fe;
+  color: #0e3a69;
+  border-bottom: 2px solid #c0d9f7;
+}
+
+// Blockquotes get a brand-blue rule
+blockquote {
+  border-left: 4px solid #1f72cd;
+  background: #f0f6fe;
+  padding: 0.5rem 1rem;
+  border-radius: 0 8px 8px 0;
+}
+
+// Inline code in a soft blue
+code:not(.sourceCode) { color: #114b88; background: #f0f6fe; }
+
+// Figures: match the app's soft-bordered image style
+p > img, figure img, .quarto-figure img {
+  border: 1px solid #e3e8ef;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.07), 0 4px 12px rgba(16, 24, 40, 0.05);
+  background: #fff;
+}
+
+// Brand the title banner
+.quarto-title-banner { background: linear-gradient(120deg, #0b2c4f, #155da9); }
+
+// Margin sidebars (converted MyST {sidebar}) as tinted panels
+.column-margin {
+  background: #eef1f5;
+  border: 1px solid #e3e8ef;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,80 @@
+project:
+  type: book
+  output-dir: _book
+  preview:
+    # Don't re-render on every file save. Auto-render spawns a subprocess whose
+    # console window flashes on Windows. Re-render on purpose with `quarto render`.
+    watch-inputs: false
+
+book:
+  title: "CAST — Groundwater Contamination Assessment"
+  subtitle: "Contamination Assessment and Site management Tool"
+  author: "P. K. Yadav, S. Birla, V. Baliga, A. Köhler, K. Aryal, I. Wani, and others"
+  favicon: images/logo/icon1.png
+  search: true
+  repo-url: https://github.com/prabhasyadav/CASTbook
+  repo-actions: [issue]
+  sidebar:
+    logo: images/logo/icon1.png
+    style: docked
+  page-footer:
+    center: "All content licensed under CC BY-SA 4.0 unless otherwise specified."
+  chapters:
+    - index.qmd
+    - part: "Getting started"
+      chapters:
+        - contents/start/run_locally.qmd
+        - contents/start/accounts.qmd
+        - contents/start/navigating.qmd
+    - part: "Site Database & Model Input"
+      chapters:
+        - contents/toolbox/database/database.qmd
+    - part: "Analytical models"
+      chapters:
+        - contents/toolbox/an_model/an_model.qmd
+        - contents/toolbox/an_model/liedl2005.qmd
+        - contents/toolbox/an_model/liedl2011.qmd
+        - contents/toolbox/an_model/chu2005.qmd
+        - contents/toolbox/an_model/ham2004.qmd
+        - contents/toolbox/an_model/bioscreen.qmd
+    - part: "Empirical models"
+      chapters:
+        - contents/toolbox/em_model/em_model.qmd
+        - contents/toolbox/em_model/mg2006.qmd
+        - contents/toolbox/em_model/birla2020.qmd
+    - part: "Numerical models"
+      chapters:
+        - contents/toolbox/num_model.qmd
+    - part: "AEM Source Designer"
+      chapters:
+        - contents/toolbox/aem/aem.qmd
+    - part: "Choosing a model"
+      chapters:
+        - contents/toolbox/mod_sel.qmd
+    - part: "Development"
+      chapters:
+        - contents/develop/code_structure.qmd
+        - contents/develop/code_libraries.qmd
+        - contents/develop/code_develop.qmd
+    - part: "Reference"
+      chapters:
+        - contents/ref/cite.qmd
+        - contents/ref/version.qmd
+
+format:
+  html:
+    theme:
+      light: cast.scss
+      dark: cast-dark.scss
+    number-sections: true
+    toc: true
+    fig-align: center
+    grid:
+      sidebar-width: 290px
+  pdf:
+    documentclass: scrreport
+    number-sections: true
+
+crossref:
+  fig-title: "Figure"
+  fig-prefix: "Figure"

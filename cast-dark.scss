@@ -1,0 +1,74 @@
+/*-- scss:defaults --*/
+// CAST design system — dark theme (mirrors the app's html[data-theme="dark"])
+
+$font-family-sans-serif: Inter, "Source Sans 3", system-ui, "Segoe UI", Roboto, Arial, sans-serif !default;
+
+$brand-400: #5ea8ff;
+$brand-500: #3b8df2;
+$brand-600: #1f72cd;
+
+$primary:    $brand-500;
+$link-color: $brand-400;
+
+$body-bg:      #0d1320;   // app dark --bg
+$body-color:   #e7eefa;   // app dark --text
+$border-color: rgba(255, 255, 255, 0.09);
+
+$navbar-bg:      #0b1220;
+$navbar-fg:      #e7eefa;
+$sidebar-bg:     #131c2e;   // app dark --panel
+$code-block-bg:  #131c2e;
+$border-radius:  10px;
+
+/*-- scss:rules --*/
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body { font-size: 1rem; line-height: 1.6; }
+h1, h2, h3, h4 { letter-spacing: -0.01em; font-weight: 650; }
+
+.quarto-title h1.title { color: #8ec5ff; }
+h2 { border-bottom: 2px solid rgba(94,168,255,0.25); padding-bottom: 0.25rem; }
+h2::before {
+  content: ""; display: inline-block;
+  width: 4px; height: 1.05em; margin-right: 0.55rem; vertical-align: -0.15em;
+  background: #3b8df2; border-radius: 2px;
+}
+h3 { color: #8ec5ff; }
+.kicker, .column-margin strong { color: #5ea8ff; }
+
+.callout.callout-note { border-left-color: #3b8df2; }
+div.sidebar-item-container .active,
+.sidebar-navigation .active > a { color: #8ec5ff !important; font-weight: 650; }
+.sidebar-navigation .active { border-left: 3px solid #3b8df2; margin-left: -3px; }
+
+table > thead, .table > thead {
+  background: #14263f; color: #b6dbff; border-bottom: 2px solid #114b88;
+}
+blockquote {
+  border-left: 4px solid #3b8df2; background: #131c2e;
+  padding: 0.5rem 1rem; border-radius: 0 8px 8px 0;
+}
+code:not(.sourceCode) { color: #8ec5ff; background: #131c2e; }
+
+p > img, figure img, .quarto-figure img {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  background: #0f1728;
+}
+
+.quarto-title-banner { background: linear-gradient(120deg, #0b1220, #114b88); }
+
+.column-margin {
+  background: #131c2e;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.85rem;
+}

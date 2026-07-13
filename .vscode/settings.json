@@ -1,0 +1,5 @@
+{
+  // Stop the Quarto extension from re-rendering (and popping its "Render"
+  // panel) every time a file is saved. Preview/render on demand instead.
+  "quarto.render.renderOnSave": false
+}

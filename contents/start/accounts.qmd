@@ -1,0 +1,36 @@
+# Accounts & logging in
+
+Most of CAST — the site database and every interactive model page — is available
+only to logged-in users. This keeps each user's uploaded site data private to
+their account.
+
+## Register
+
+1. From the top bar choose **Register**.
+2. Provide a username, a valid email address, and a password.
+3. Submit — you are returned to the login page.
+
+Passwords must satisfy the site's password policy (a minimum length and
+complexity). The email address is unique: one account per email.
+
+## Log in
+
+1. Choose **Login** and enter your email and password.
+2. On success you land back on the home page, now signed in.
+
+::: {.callout-note}
+Login is rate-limited (a few attempts per minute) to protect accounts. If you are
+temporarily blocked after several failed attempts, wait a minute and try again.
+:::
+
+## Log out
+
+Use **Log out** in the top bar. On a shared machine, always log out when you are
+done — your site data stays tied to your account.
+
+## Your data
+
+- Uploaded site rows belong to your account and are not visible to other users.
+- Deleting your account removes all of your site data with it.
+- For a full description of what is stored and your rights, see the site's
+  **Privacy** and **Imprint** pages (linked in the footer of the app).

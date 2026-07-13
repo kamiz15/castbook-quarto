@@ -1,0 +1,39 @@
+# Navigating CAST
+
+The CAST home page opens on **Groundwater Contamination Assessment** with a set of
+toolbox tiles. Each tile opens one toolbox; the toolboxes are meant to be used in
+sequence.
+
+## The toolbox tiles
+
+| Tile | Opens | Documented in |
+|---|---|---|
+| **Site Database & Model Input** | Site measurements and validated model inputs | [Site Database](../toolbox/database/database.qmd) |
+| **Analytical Models** | Closed-form plume models | [Analytical Models](../toolbox/an_model/an_model.qmd) |
+| **Empirical Models** | Field-data correlations | [Empirical Models](../toolbox/em_model/em_model.qmd) |
+| **Numerical Models** | MODFLOW flow & transport | [Numerical Models](../toolbox/num_model.qmd) |
+| **AEM Source Designer** | Source geometry & parameter estimation | [AEM Source Designer](../toolbox/aem/aem.qmd) |
+
+## Single vs. multiple computing
+
+Most model toolboxes offer two modes:
+
+- **Single computing** — define one set of inputs and generate one result graph,
+  compared against the CAST reference database. Once a first result is computed,
+  interactive **sliders** let you vary the most sensitive parameters and watch the
+  result update without regenerating the graph.
+- **Multiple computing** — define several scenarios (typed in, or uploaded from a
+  file) and compare them in one graph, still against the reference sites. You
+  choose which reference sites to overlay.
+
+## Model pages are interactive
+
+Each model page is served as a live [Panel](https://panel.holoviz.org/) app
+embedded in the site: inputs, sliders, and plots respond in place. Numerical runs
+are queued as background jobs and produce a downloadable PDF report when finished.
+
+## Choosing a model
+
+Not sure which model fits your site? See [Model selection](../toolbox/mod_sel.qmd)
+for guidance on matching a model to the data you have and the question you are
+asking.

@@ -1,0 +1,39 @@
+# AEM Source Designer
+
+The **AEM Source Designer** toolbox uses the Analytic Element Method to describe a
+contaminant source and estimate transport parameters. It complements the closed-form
+analytical models by letting you lay out a source geometry explicitly and then run
+the transport problem forward, or invert field observations for the parameters that
+best reproduce them.
+
+The toolbox has three parts:
+
+## 1. Designer
+
+Lay out the source interactively on a canvas: place and edit source elements, set the
+model parameters (longitudinal / transverse dispersivity $\alpha_L$, $\alpha_T$,
+source concentration $c_A$, decay $\gamma$, source width $W_s$) and the computational
+parameters (grid increment, control points, expansion terms, plot aspect). The
+designer reports the maximum plume length $L_{max}$ for the configured source.
+
+::: {.callout-note}
+The source elements must stay a small clearance below the water table for the
+solution to be valid; the designer flags configurations that violate this.
+:::
+
+## 2. Forward simulation
+
+Run the configured source forward to produce the steady-state plume and its
+$L_{max}$, drawn together with a reference line at the computed maximum extent.
+
+## 3. Inverse estimation
+
+Given field observations, scan the parameter space to estimate the source and
+transport parameters that best reproduce the observed plume — a parameter-estimation
+/ optimization workflow rather than a single forward run.
+
+## When to use it
+
+Reach for the AEM Source Designer when a single closed-form source (a patch or point)
+is too simplistic for your site, when you need an explicit source geometry, or when
+you want to **estimate** parameters from observations instead of assuming them.

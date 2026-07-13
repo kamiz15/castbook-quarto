@@ -1,0 +1,58 @@
+# Run CAST locally
+
+Most people use CAST through its hosted website and never need to install
+anything. Run it locally only if you want your **own** private instance — for
+teaching, offline use, or development.
+
+CAST ships as a Docker Compose stack (web app, interactive model pages, database
+and numerical solver together), so a full instance starts with one command. You
+do **not** need to install Python, MySQL or MODFLOW yourself — they live inside
+the containers.
+
+## Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/) with Docker Compose v2
+- Git
+
+## 1. Get the code
+
+```bash
+git clone <your-CAST-repo-url> cast
+cd cast
+```
+
+## 2. Configure
+
+Copy the template and fill in a few values:
+
+```bash
+cp .env.example .env
+```
+
+In `.env` set:
+
+| Variable | Value |
+|---|---|
+| `SECRET_KEY` | Generate one: `python -c "import secrets; print(secrets.token_urlsafe(48))"` |
+| `DB_USER`, `DB_PASSWORD`, `MYSQL_ROOT_PASSWORD` | Any passwords you choose for the local database |
+| `SESSION_COOKIE_SECURE` | `false` for local `http://localhost` (otherwise you can't stay logged in) |
+
+The other defaults already point at localhost and can be left as they are.
+
+## 3. Start
+
+```bash
+docker compose up --build -d
+```
+
+When the containers are up, open **<http://localhost:5000>** and
+[register an account](accounts.qmd) to begin.
+
+## Stop and update
+
+```bash
+docker compose down          # stop
+git pull && docker compose up --build -d   # update to the latest version
+```
+
+Your accounts and site data live in the database volume and survive updates.
