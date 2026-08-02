@@ -1,7 +1,7 @@
-## CAST Code Structure 
+# i. Code Structure {.unnumbered}
 
 
-![The main code structure of CAST](images/CS_f1.png){#fig-cs1 fig-align="center" width="60%"}
+![The main code structure of CAST](images/code-structure/fig8-i-01.png){#fig-8-i-01 fig-align="center" width="60%"}
 
 The structuring of CAST is as follows :
 
@@ -12,7 +12,7 @@ The structuring of CAST is as follows :
 * `requirements.txt` : Python packages/libraries used in the project
 
 Other files include _readme_, _licensing_, _installation_ files etc.
-@fig-cs1 shows the screenshot of the main code structure of CAST.
+@fig-8-i-01 shows the screenshot of the main code structure of CAST.
 
 
 
@@ -23,8 +23,8 @@ The struction of the main coding folder `groundwater` is as follows :
 * `NumericalModel` : Code for the numerical model
 
 
-![The main code structure of CAST](images/CS_f2.png){#fig-cs2 fig-align="center" width="60%"}
+![The main code structure of CAST](images/code-structure/fig8-i-02.png){#fig-8-i-02 fig-align="center" width="60%"}
 
 
 Other files include python files consisting of routes, initialisation and integration codes for CAST.
-@fig-cs2 shows the screenshot of the code structure of the `groundwater` folder of the CAST.
+@fig-8-i-02 shows the screenshot of the code structure of the `groundwater` folder of the CAST.

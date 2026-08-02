@@ -1,0 +1,10 @@
+# 1. Getting Started {.unnumbered}
+
+This section explains how to prepare and use CAST before working with its
+scientific toolboxes.
+
+The section contains:
+
+1. [Run CAST locally](run_locally.qmd)
+2. [Accounts and logging in](accounts.qmd)
+3. [Navigating CAST](navigating.qmd)

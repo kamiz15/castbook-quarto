@@ -1,0 +1,8 @@
+# 6. AEM Source Designer {.unnumbered}
+
+The AEM Source Designer represents complex contaminant sources with analytic
+elements and computes steady-state plume behavior without a spatial transport
+grid.
+
+Continue to the [AEM transport model and Source Designer guide](aem.qmd) for
+model background, parameter definitions, and the simulation workflow.

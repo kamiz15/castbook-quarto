@@ -1,6 +1,6 @@
-# 4. Analytic Element Method (AEM) Transport Model and Complex Source Designer {.unnumbered}
+# i. Analytic Element Method Transport Model and Complex Source Designer {.unnumbered}
 
-## i. Model background {.unnumbered}
+## Model Background
 
 The model is based on *Köhler et al. (2026a)* and *Köhler et al. (2026b,
 submitted)*, which present solutions for reactive contaminant transport from
@@ -17,7 +17,7 @@ to the transport problem, so the method does not solve the transport equations
 numerically on a spatial grid. For detailed model descriptions, refer to
 *Köhler et al. (2026a, 2026b)* and *Liedl et al. (2005)*.
 
-## ii. Source designer features {.unnumbered}
+## Source Designer Features
 
 The Source Designer models the steady-state contaminant plume produced by a
 complex source. After specifying the physical and chemical model parameters,
@@ -25,7 +25,7 @@ the source geometry is built by placing multiple source-element types with
 different sizes and concentrations on the source pane. Available element types
 are polygons, circles, ellipses, and lines.
 
-## iii. Input parameters and physical meaning {.unnumbered}
+## Input Parameters and Physical Meaning
 
 - **Longitudinal dispersivity** $\alpha_L$ [m]: Describes spreading of the
   transported compounds along the groundwater-flow direction.
@@ -49,42 +49,42 @@ are polygons, circles, ellipses, and lines.
 - **Expansion terms**: Number of terms in the Mathieu-series expansion. More
   terms may slightly improve accuracy, but may also make the solution unstable.
 
-## iv. Simulation workflow {.unnumbered}
+## Simulation Workflow
 
-@fig-4-iv-01 identifies the main areas used to configure the model and construct
+@fig-6-i-01 identifies the main areas used to configure the model and construct
 the source zone.
 
-![AEM Source Designer overview showing the simulation settings, source canvas, JSON import control, and simulation control.](images/aem/fig4-iv-01.png){#fig-4-iv-01 fig-align=center width=90%}
+![AEM Source Designer overview showing the simulation settings, source canvas, JSON import control, and simulation control.](images/aem/fig6-i-01.png){#fig-6-i-01 fig-align=center width=90%}
 
 1. Choose the model orientation.
 2. Define the physical, chemical, and computational input parameters.
 3. Either import an existing source-zone configuration with **Import JSON**, or
    configure a new source zone on the canvas.
-4. Choose the required element type as shown in @fig-4-iv-02. The available
+4. Choose the required element type as shown in @fig-6-i-02. The available
    tools are **Polygon (1)**, **Circle (2)**, **Ellipse (3)**, **Line (4)**, and
    **Select (5)**.
 
-![Selecting a source-element type in the AEM Source Designer.](images/aem/fig4-iv-02.png){#fig-4-iv-02 fig-align=center width=60%}
+![Selecting a source-element type in the AEM Source Designer.](images/aem/fig6-i-02.png){#fig-6-i-02 fig-align=center width=60%}
 
 5. To create a polygonal source zone, select **Polygon (1)** and place its
-   vertices on the source pane as shown in @fig-4-iv-03.
+   vertices on the source pane as shown in @fig-6-i-03.
 
-![Placing a polygonal source-zone boundary on the source pane.](images/aem/fig4-iv-03.png){#fig-4-iv-03 fig-align=center width=90%}
+![Placing a polygonal source-zone boundary on the source pane.](images/aem/fig6-i-03.png){#fig-6-i-03 fig-align=center width=90%}
 
 6. Select **Close & Pack polygon** to fill the polygon with circular source
-   elements as shown in @fig-4-iv-04.
+   elements as shown in @fig-6-i-04.
 
-![Filling a polygon with circular source elements.](images/aem/fig4-iv-04.png){#fig-4-iv-04 fig-align=center width=90%}
+![Filling a polygon with circular source elements.](images/aem/fig6-i-04.png){#fig-6-i-04 fig-align=center width=90%}
 
 7. Add further source elements if required. Use **Select (5)** to choose an
    element, drag it to a new position, resize it with the arrow keys, or change
    its concentration with the **+** and **-** keys. Use **Index # (i)** to
    toggle element indices. When the configuration is complete, select
-   **Run Simulation** as shown in @fig-4-iv-05.
+   **Run Simulation** as shown in @fig-6-i-05.
 
-![Adding further source elements or running the configured simulation.](images/aem/fig4-iv-05.png){#fig-4-iv-05 fig-align=center width=90%}
+![Adding further source elements or running the configured simulation.](images/aem/fig6-i-05.png){#fig-6-i-05 fig-align=center width=90%}
 
 8. Select **Export (s)** to save the current model configuration as JSON. The
-   import and export controls are highlighted in @fig-4-iv-06.
+   import and export controls are highlighted in @fig-6-i-06.
 
-![Importing a model configuration from JSON or exporting the current configuration to JSON.](images/aem/fig4-iv-06.png){#fig-4-iv-06 fig-align=center width=60%}
+![Importing a model configuration from JSON or exporting the current configuration to JSON.](images/aem/fig6-i-06.png){#fig-6-i-06 fig-align=center width=60%}

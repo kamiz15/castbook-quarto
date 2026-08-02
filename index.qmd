@@ -17,7 +17,7 @@ CAST is organised into toolboxes that are designed to be used in sequence:
 
 | Toolbox | What it does |
 |---|---|
-| **Site Database & Model Input** | Manage site measurements and prepare validated input datasets for every model. 100+ reference sites plus your own uploads. |
+| **Site Database** | Manage, visualize, and analyze site measurements. Includes 100+ reference sites and supports user uploads. |
 | **Analytical Models** | Closed-form plume solutions — Liedl 2D & 3D, Chu, Ham, Cirpka, and BIOSCREEN-AT. |
 | **Empirical Models** | Field-data correlations for plume length — Maier & Grathwohl, Birla et al. |
 | **Numerical Models** | MODFLOW / MT3D-based flow & transport simulations, in horizontal and vertical setups. |

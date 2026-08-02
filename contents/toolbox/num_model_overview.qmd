@@ -1,0 +1,7 @@
+# 5. Numerical Models {.unnumbered}
+
+The Numerical Models section describes the grid-based groundwater flow and
+transport workflow implemented with MODFLOW and MT3DMS.
+
+Continue to the [numerical model guide](num_model.qmd) for the conceptual model,
+input parameters, execution workflow, and model output.

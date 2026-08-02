@@ -1,4 +1,4 @@
-# Accounts & logging in
+# ii. Accounts and Logging In {.unnumbered}
 
 Most of CAST — the site database and every interactive model page — is available
 only to logged-in users. This keeps each user's uploaded site data private to
