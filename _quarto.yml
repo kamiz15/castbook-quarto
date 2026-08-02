@@ -29,9 +29,8 @@ book:
     - part: "Site Database & Model Input"
       chapters:
         - contents/toolbox/database/database.qmd
-    - part: "Analytical models"
+    - part: contents/toolbox/an_model/an_model.qmd
       chapters:
-        - contents/toolbox/an_model/an_model.qmd
         - contents/toolbox/an_model/liedl2005.qmd
         - contents/toolbox/an_model/liedl2011.qmd
         - contents/toolbox/an_model/chu2005.qmd

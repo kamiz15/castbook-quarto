@@ -1,12 +1,12 @@
 
-### CAST Toolbox - Analytical Models - Liedl et al. 2011 ####
+# ii. Liedl et al. (2011) Model {.unnumbered}
 
-####  Liedl et al. (2011) model (a **<u>3D</u> Model**) ####
+## Model description
 
-This model, based on [Liedl et al. (2011)](#refli2011), provides an estimate of a steady-state plume length ($L_{max}$ ) from a 3D model domain (see figure). This model extends the 2D model present in Liedl et al. (2005). As is in the 2D model, in this model too, the vertical orientation refers to $z$-axis being aligned to the aquifer thickness. The domain width and length is infinite in this model.
+This model, based on [Liedl et al. (2011)](#refli2011), provides an estimate of a steady-state plume length ($L_{max}$ ) from a 3D model domain (see @fig-1-ii-01). This model extends the 2D model present in Liedl et al. (2005). As is in the 2D model, in this model too, the vertical orientation refers to $z$-axis being aligned to the aquifer thickness. The domain width and length is infinite in this model.
 
 
-![Liedl et al. (2011)- conceptual set-up](images/li2011/li2011_f1.png){#fig-li2011 fig-align="center" width="40%"}
+![Liedl et al. (2011)- conceptual set-up](images/liedl2011/fig1-ii-01.png){#fig-1-ii-01 fig-align="center" width="40%"}
 
 Liedl et al.(2011) provides the following implicit expression for $L_{max}$:
 
@@ -31,13 +31,13 @@ $$ {#eq-eqli2011}
 
 The $C_{Thres}$ in this model allows to set the contaminant concentration to any value greater than or equal to zero, and then $L_{max}$ is length from the origin to that maximum distance of $C_{Thres}$ along $x$-axis . 
 
-##### The model is based on the following assumptions: #####
+***The model is based on the following assumptions***
 
 1. Steady-state condition in a homogeneous and isotropic aquifer.
 2. A single step bi-molecular instantaneous reaction between reactants taking place only at the fringe.
 3. The contaminant source (Electron Donor) penetrates entire thickness of the aquifer, i.e., $M = A_t$
 
-#### Solving for $L_{max}$ using Liedl et al. (2011) ####
+## Solving for $L_{max}$ using Liedl et al. (2011)
 
 Iterative methods is required to solve for $L_{max}$ using eq.  @eq-eqli2011. This is because eq.  @eq-eqli2011 is implicit with respect to $L_{max}$. [Newtwon-Raphson](https://en.wikipedia.org/wiki/Newton%27s_method) iterative scheme is used in **CAST**. The details below very briefly describe the used scheme. 
 
@@ -109,15 +109,15 @@ def NR(x):
 
 
 
-#### Using Liedl et al. (2011) model in CAST #### 
+## Using Liedl et al. (2011) model in CAST
 
-##### Single computing interface #####
+***Single computing interface***
 
 The **CAST** user-interface for all the analytical models are identical. This is true for both **single computing interface** and **multiple simulation interface**. The identical interface simplifies the use of models in the CAST. Therefore, the extensive details on using the Liedl et al. (2005) model in **CAST** provided [here](liedl2005.qmd) can be used also for the Liedl et al. (2011).
 
 The difference in each model interface is the model specific parameters. The 3D models as opposed to 2D models requires significantly more number of input parameters. This can be observed in the CAST screenshot below:
 
-![Single computing interface](images/li2011/li2011_f2.png){#fig-li2011_f2 fig-align="center" width="30%"}
+![Single computing interface](images/liedl2011/fig1-ii-02.png){#fig-1-ii-02 fig-align="center" width="30%"}
 
 Once the input data is placed in the box, user need to click on the `Generate Graph` button to get the result. Results are obtained as a absolute number below the `Generate Graph` button and also graphically, which provides field plume length data from the database. This allows a visual comparsion of model $L_{max}$ with the field data.
 
@@ -129,26 +129,26 @@ Such limits can be avoided for **offline** version of CAST.
 
 As detailed in the use of [Liedl et al. (2005) model - check here](liedl2005.qmd), the resulting graph provides several interactive options to evaluate results. The screenshot below provides the output of the **single computing mode** of CAST.
 
-![Interactive options in the Single computing interface](images/li2011/li2011_f3.png){#fig-li2011_f3 fig-align="center" width="30%"}
+![Interactive options in the Single computing interface](images/liedl2011/fig1-ii-03.png){#fig-1-ii-03 fig-align="center" width="30%"}
 
 
 
-##### Dynamically comparing model results - using sliders ######
+***Dynamically comparing model results using sliders***
 
-**Sliders** are activated once the `Generate Graph` button is clicked (see @fig-li2011_f3). **Sliders** are provided for more critical model parameters that have been suggested in [Liedl et al. (2011)](#refli2011) paper. **Sliders** changes the model input parameter; for which the output $L_{max}$ appears in the graph. This enables a dynamic computation and visualization. Delay in result output can be observed as Liedl et al. (2011) model computes $L_{max}$ iteratively.
+**Sliders** are activated once the `Generate Graph` button is clicked (see @fig-1-ii-03). **Sliders** are provided for more critical model parameters that have been suggested in [Liedl et al. (2011)](#refli2011) paper. **Sliders** changes the model input parameter; for which the output $L_{max}$ appears in the graph. This enables a dynamic computation and visualization. Delay in result output can be observed as Liedl et al. (2011) model computes $L_{max}$ iteratively.
 
 
-##### Multiple computing interface ######
+***Multiple computing interface***
 
 The **multiple computing interface** of the Liedl et al. (2011) model is identical to other analytical model interface. The goal of the multiple computing interface to develop several scenario and compare the output of the scenario with that of the field data. As can be observed in the screenshot below, users has an option to select the site(s) they would like to compare their scenarios. 
 
-![Selecting field site to compare model results](images/li2011/li2011_f4a.png){#fig-li2011_f4a fig-align="center" width="25%"}
+![Selecting field site to compare model results](images/liedl2011/fig1-ii-04.png){#fig-1-ii-04 fig-align="center" width="25%"}
 
 The interface of **multiple computing interface** is provided in the screenshot below. Details on the options are identical to that provided for Liedl et al. (2005) model that is provided [here](liedl2005.qmd).
 
-![Interface for multiple computing interface.](images/li2011/li2011_f4.png){#fig-li2011_f4a-2 fig-align="center" width="60%"}
+![Interface for multiple computing interface.](images/liedl2011/fig1-ii-05.png){#fig-1-ii-05 fig-align="center" width="60%"}
 
-#### Reference ####
+## Reference
 
 (refli2011)=
-Liedl, R., Yadav, P.K., Dietrich, P., 2011. Length of 3-D mixing-controlled plumes for a fully penetrating contaminant source with finite width. Water Resour. Res. 47. https://doi.org/10.1029/2010WR009710 
+Liedl, R., Yadav, P.K., Dietrich, P., 2011. Length of 3-D mixing-controlled plumes for a fully penetrating contaminant source with finite width. Water Resour. Res. 47. https://doi.org/10.1029/2010WR009710

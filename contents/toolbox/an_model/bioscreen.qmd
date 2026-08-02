@@ -1,10 +1,10 @@
-## CAST Toolbox - Analytical Models - BIOSCREEN-AT
+# v. BIOSCREEN-AT Model {.unnumbered}
 
-### BIOSCREEN-AT model decription ###
+## Model description
 
-The BIOSCREEN-AT, provided in [Karanovic et al. (2007)](#refbs) Model provides an exact analytical Solution to the BIOSCREEN Model. The model provides a three-dimensional solution for transport of dissolved contaminants, incorporating natural attenuation processes. As shown in @fig-bscreen_f1 , the source is given as a patch specified-concentration boundary condition.
+The BIOSCREEN-AT, provided in [Karanovic et al. (2007)](#refbs) Model provides an exact analytical Solution to the BIOSCREEN Model. The model provides a three-dimensional solution for transport of dissolved contaminants, incorporating natural attenuation processes. As shown in @fig-1-v-01, the source is given as a patch specified-concentration boundary condition.
 
-![The BIOSCREEN-AT model concept](images/bscreen/bscreen_f1.png){#fig-bscreen_f1 fig-align="center" width="70%"}
+![The BIOSCREEN-AT model concept](images/bioscreen/fig1-v-01.png){#fig-1-v-01 fig-align="center" width="70%"}
 
 Karanovic et al. (2007) Provide the following expression for an exact analytical solution:
 
@@ -35,7 +35,7 @@ $W$ = source width (m)<br/>
 $H$ = source depth (m)
 :::
 
-### Model Assumptions ####
+## Model assumptions
 
 The model is based on the following assumptions: 
 
@@ -44,7 +44,7 @@ The model is based on the following assumptions:
 3. The solute undergoes equilibrium sorption and first-order transformation reactions.
 4. The aquifer is homogeneous and $L_{max}$ is always found on the center line.
 
-### Model Parameters ##
+## Model parameters
 
 `Threshold Concentration`- The evaluation of the analytical solution shows, that the contaminant concentration $C \to 0$ for $x \to \infty$. Due to this asymptotical convergence, it is required to provide a threshold concentration, which defines the $L_{max}$ concentration contour level. This threshold should be close to a concentration of 0 or one could also choose value equaling water quality standards. The default value in CAST is set at $5e-5$ mg/l.
 
@@ -64,7 +64,7 @@ The model is based on the following assumptions:
 
 `Decay Coefficient` - $\lambda$ describes the decay of the contaminant within the plume. It occurs due to the same reasons as the source decay, but in addition a stronger degredation comes from oxidation and chemical reactions with other chemical compounds that are available.  
 
-### Solution Approach for BIOSCREEN-AT in CAST ###
+## Solution approach for BIOSCREEN-AT in CAST
 
 The concentration contour for BIOSCREEN-AT (eq. @eq-eqbio2007) includes an integral that has to be numerically solved for obtaining $L_{max}$. The $L_{max}$ in this case is the  _centereline_ maximum longitudinal extend of the selected threshold concentration contour. 
 
@@ -141,22 +141,22 @@ Using Gauss points $<15$ is not recommended.
 
 :::
 
-###  Model  Results Using CAST ###
+## Model results using CAST
 
 The CAST interface of BIOSCREEN-AT is identical to that for other analytical/empirical models. The details of the interface and available user options can be found at [Liedl et al. (2005)](liedl2005.qmd). Below a very brief outline of the CAST interface specific to BIOSCREEN-AT is provided.
 
 
-#### Single Computing Simulation ####
+***Single computing simulation***
 
-First all input data needs to be defined (screenshot @fig-bscreen_f2). Then a graph is genereated, that shows the result of the computation in comparison to the field data from the CAST database (screenshot @fig-bscreen_f3).
+First all input data needs to be defined (screenshot @fig-1-v-02). Then a graph is genereated, that shows the result of the computation in comparison to the field data from the CAST database (screenshot @fig-1-v-03).
 
-![The CAST interface for BIOSCREEN-AT data input](images/bscreen/bscreen_f2.png){#fig-bscreen_f2 fig-align="center" width="70%"}
+![The CAST interface for BIOSCREEN-AT data input](images/bioscreen/fig1-v-02.png){#fig-1-v-02 fig-align="center" width="70%"}
 
-![The CAST interface for BIOSCREEN-AT output](images/bscreen/bscreen_f3.png){#fig-bscreen_f3 fig-align="center" width="50%"}
+![The CAST interface for BIOSCREEN-AT output](images/bioscreen/fig1-v-03.png){#fig-1-v-03 fig-align="center" width="50%"}
 
-Once the first computation of $L_{max}$ pressing `Generate graph` button is made, the CAST interface provides interface with **sliders** bars (@fig-bscreen_f4) for the most sensible model parameters.
+Once the first computation of $L_{max}$ pressing `Generate graph` button is made, the CAST interface provides interface with **sliders** bars (@fig-1-v-04) for the most sensible model parameters.
 
-![Interactive sliders in CAST for BIOSCREEN-AT model](images/bscreen_f4.png){#fig-bscreen_f4 fig-align="center" width="50%"}
+![Interactive sliders in CAST for BIOSCREEN-AT model](images/bioscreen/fig1-v-04.png){#fig-1-v-04 fig-align="center" width="50%"}
 
 The **sliders** can be used to change the input values while simultaneously getting a feedback of how these changes effect the model result. This has the advantage that it is not required to generate a new graph which makes the effect of the parameter change more visible and clear.
 
@@ -166,13 +166,13 @@ Numerical computations are used to compute $L_{max}$. As such care has to be tak
 
 :::
 
-### Multiple Computing Simulation
+***Multiple computing simulation***
 
 The multiple computing mode can be used to visualize different own case results in one graph, while still being able to compare to the CAST database. The interface for BIOSCREEN-AT is identical to other models. User can check  [Liedl et al. (2005)](../an_model/liedl2005.qmd) on details of using the **multiple computing interface**.
 
  Data in the interface can be inserted via the `add data` button or can be uploaded from a file. A sample file can be downloaded for purposes of correct formatting. It is possible to slect the desired sites to be schown in the graph. 
 
-![Multiple computing interface in CAST for BIOSCREEN-AT model](images/bscreen/bscreen_f5.png){#fig-bscreen_f5 fig-align="center" width="50%"}
+![Multiple computing interface in CAST for BIOSCREEN-AT model](images/bioscreen/fig1-v-05.png){#fig-1-v-05 fig-align="center" width="50%"}
 
-### References {#refbs}
+## References {#refbs}
 Karanovic, M., Neville, C.,  and Andrews, C., (2007), BIOSCREEN-AT: BIOSCREEN with an Exact Analytical Solution. Vol. 45(2), pp. 242-245, Groundwater.
