@@ -21,12 +21,12 @@ book:
     center: "All content licensed under CC BY-SA 4.0 unless otherwise specified."
   chapters:
     - index.qmd
-    - part: "Getting started"
+    - part: contents/start/getting_started.qmd
       chapters:
         - contents/start/run_locally.qmd
         - contents/start/accounts.qmd
         - contents/start/navigating.qmd
-    - part: "Site Database & Model Input"
+    - part: contents/toolbox/database/database_overview.qmd
       chapters:
         - contents/toolbox/database/database.qmd
     - part: contents/toolbox/an_model/an_model.qmd
@@ -36,26 +36,25 @@ book:
         - contents/toolbox/an_model/chu2005.qmd
         - contents/toolbox/an_model/ham2004.qmd
         - contents/toolbox/an_model/bioscreen.qmd
-    - part: "Empirical models"
+    - part: contents/toolbox/em_model/em_model.qmd
       chapters:
-        - contents/toolbox/em_model/em_model.qmd
         - contents/toolbox/em_model/mg2006.qmd
         - contents/toolbox/em_model/birla2020.qmd
-    - part: "Numerical models"
+    - part: contents/toolbox/num_model_overview.qmd
       chapters:
         - contents/toolbox/num_model.qmd
-    - part: "AEM Source Designer"
+    - part: contents/toolbox/aem/aem_overview.qmd
       chapters:
         - contents/toolbox/aem/aem.qmd
-    - part: "Choosing a model"
+    - part: contents/toolbox/mod_sel_overview.qmd
       chapters:
         - contents/toolbox/mod_sel.qmd
-    - part: "Development"
+    - part: contents/develop/development.qmd
       chapters:
         - contents/develop/code_structure.qmd
         - contents/develop/code_libraries.qmd
         - contents/develop/code_develop.qmd
-    - part: "Reference"
+    - part: contents/ref/reference.qmd
       chapters:
         - contents/ref/cite.qmd
         - contents/ref/version.qmd

@@ -1,0 +1,6 @@
+# 7. Choosing a Model {.unnumbered}
+
+This section helps users select a CAST model whose assumptions, dimensionality,
+inputs, and outputs match the available site information and modelling goal.
+
+Continue to the [model selection guide](mod_sel.qmd).

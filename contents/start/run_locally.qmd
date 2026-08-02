@@ -1,6 +1,6 @@
-# 0. Run CAST locally {.unnumbered}
+# i. Run CAST locally {.unnumbered}
 
-## i. What a local CAST installation provides {.unnumbered}
+## What a local CAST installation provides
 
 Most users can work with CAST through the hosted website without installing
 anything. A local installation is useful when you need:
@@ -25,15 +25,15 @@ Python, MySQL, Panel, or MODFLOW directly on the host computer when you use this
 method.
 
 ::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig0-i-01.png**
+**[SC] Figure placeholder: fig1-i-01.png**
 
 Suggested screenshot or diagram: the four Docker services, with the browser
 connecting to Nginx and Nginx routing requests to Flask and Panel.
 
-Future location: **contents/start/images/run-locally/fig0-i-01.png**
+Future location: **contents/start/images/run-locally/fig1-i-01.png**
 :::
 
-## ii. Install and verify the prerequisites {.unnumbered}
+## Install and verify the prerequisites
 
 Install the following software before downloading CAST:
 
@@ -68,15 +68,15 @@ of connection errors.
 :::
 
 ::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig0-ii-01.png**
+**[SC] Figure placeholder: fig1-i-02.png**
 
 Suggested screenshot: Docker Desktop showing that the engine is running, or a
 terminal showing successful output from the four prerequisite checks.
 
-Future location: **contents/start/images/run-locally/fig0-ii-01.png**
+Future location: **contents/start/images/run-locally/fig1-i-02.png**
 :::
 
-## iii. Download the CAST source code {.unnumbered}
+## Download the CAST source code
 
 Choose a parent directory in which the new **cast** folder should be created.
 Then clone the application repository:
@@ -105,15 +105,15 @@ that your work is saved, and use the update procedure in subsection vii
 instead.
 
 ::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig0-iii-01.png**
+**[SC] Figure placeholder: fig1-i-03.png**
 
 Suggested screenshot: the terminal after cloning CAST and entering the **cast**
 directory, with the required files visible.
 
-Future location: **contents/start/images/run-locally/fig0-iii-01.png**
+Future location: **contents/start/images/run-locally/fig1-i-03.png**
 :::
 
-## iv. Configure the local environment {.unnumbered}
+## Configure the local environment
 
 CAST keeps secrets and machine-specific values in a file named **.env**. This
 file is intentionally excluded from Git, which helps prevent passwords and
@@ -244,24 +244,24 @@ issue, chat message, screenshot, or public document.
 :::
 
 ::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig0-iv-01.png**
+**[SC] Figure placeholder: fig1-i-04.png**
 
 Suggested screenshot: **.env** open in a text editor with the four required
 variable names visible. Blur or replace every real secret before capturing it.
 
-Future location: **contents/start/images/run-locally/fig0-iv-01.png**
+Future location: **contents/start/images/run-locally/fig1-i-04.png**
 :::
 
 ::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig0-iv-02.png**
+**[SC] Figure placeholder: fig1-i-05.png**
 
 Suggested screenshot: a terminal after **docker compose config --quiet**
 completes successfully.
 
-Future location: **contents/start/images/run-locally/fig0-iv-02.png**
+Future location: **contents/start/images/run-locally/fig1-i-05.png**
 :::
 
-## v. Build and start CAST {.unnumbered}
+## Build and start CAST
 
 From the repository root, run:
 
@@ -305,24 +305,24 @@ docker compose logs -f
 Press **Ctrl+C** to stop following the logs. This does not stop the containers.
 
 ::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig0-v-01.png**
+**[SC] Figure placeholder: fig1-i-06.png**
 
 Suggested screenshot: the first **docker compose up --build -d** command
 completing without an error.
 
-Future location: **contents/start/images/run-locally/fig0-v-01.png**
+Future location: **contents/start/images/run-locally/fig1-i-06.png**
 :::
 
 ::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig0-v-02.png**
+**[SC] Figure placeholder: fig1-i-07.png**
 
 Suggested screenshot: **docker compose ps** showing all four CAST services
 running and healthy.
 
-Future location: **contents/start/images/run-locally/fig0-v-02.png**
+Future location: **contents/start/images/run-locally/fig1-i-07.png**
 :::
 
-## vi. Open and verify the local site {.unnumbered}
+## Open and verify the local site
 
 Open the following address in a browser:
 
@@ -349,15 +349,15 @@ The Docker image already contains MODFLOW 6, so numerical pages do not require
 a separate solver installation.
 
 ::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig0-vi-01.png**
+**[SC] Figure placeholder: fig1-i-08.png**
 
 Suggested screenshot: the CAST home page at **http://localhost** after a
 successful local start.
 
-Future location: **contents/start/images/run-locally/fig0-vi-01.png**
+Future location: **contents/start/images/run-locally/fig1-i-08.png**
 :::
 
-## vii. Stop, restart, and update CAST {.unnumbered}
+## Stop, restart, and update CAST
 
 ***Stop CAST without deleting data***
 
@@ -405,7 +405,7 @@ Do not run **docker compose down -v** as part of a normal stop or update. The
 site data, and stored job data unless you have a separate backup.
 :::
 
-## viii. Troubleshooting {.unnumbered}
+## Troubleshooting
 
 ***Docker cannot connect to the daemon***
 
@@ -466,10 +466,10 @@ Docker normally reuses completed layers, so the retry does not repeat every
 successful step.
 
 ::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig0-viii-01.png**
+**[SC] Figure placeholder: fig1-i-09.png**
 
 Suggested screenshot: **docker compose ps** beside a service-specific log
 command used for troubleshooting.
 
-Future location: **contents/start/images/run-locally/fig0-viii-01.png**
+Future location: **contents/start/images/run-locally/fig1-i-09.png**
 :::

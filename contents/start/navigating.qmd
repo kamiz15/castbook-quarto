@@ -1,4 +1,4 @@
-# Navigating CAST
+# iii. Navigating CAST {.unnumbered}
 
 The CAST home page opens on **Groundwater Contamination Assessment** with a set of
 toolbox tiles. Each tile opens one toolbox; the toolboxes are meant to be used in
@@ -8,7 +8,7 @@ sequence.
 
 | Tile | Opens | Documented in |
 |---|---|---|
-| **Site Database & Model Input** | Site measurements and validated model inputs | [Site Database](../toolbox/database/database.qmd) |
+| **Site Database** | Site measurements, visualization, and statistical analysis | [Site Database](../toolbox/database/database.qmd) |
 | **Analytical Models** | Closed-form plume models | [Analytical Models](../toolbox/an_model/an_model.qmd) |
 | **Empirical Models** | Field-data correlations | [Empirical Models](../toolbox/em_model/em_model.qmd) |
 | **Numerical Models** | MODFLOW flow & transport | [Numerical Models](../toolbox/num_model.qmd) |

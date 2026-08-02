@@ -1,12 +1,12 @@
-### CAST Toolbox - Empirical Models - Birla et al. (2020) ###
+# ii. Birla et al. (2020) Model {.unnumbered}
 
-#### Birla et al. (2020) model description
+## Model Description
 
 
 This is a 2D empirical model, based on [Birla et al. (2020)](#refbirla2020). The empirical model is based on the hybrid concept of combining an analytical model with an empirical function. The analytical model used is [Liedl et al. 2005](../an_model/liedl2005.qmd) model and empirical function is developed using MODFLOW/MT3DMS based numerical experimentation. The experimentation part uses the effect of recharge on the plume extension. The figure below provides the conceptual set-up of Birla et al. (2020).
 
 
-![Birla et al. (2020)- conceptual set-up](images/birla2020_f1.png){#fig-birla2020_f1 fig-align="center" width="60%"}
+![Birla et al. (2020)- conceptual set-up](images/birla2020/fig4-ii-01.png){#fig-4-ii-01 fig-align="center" width="60%"}
 
 [Birla et al. (2020)](#refbirla2020) provides the following explicit expression for $L_{max}$:
 
@@ -34,19 +34,19 @@ $R$= Recharge rate [L$^{3}$T$^{-1}$]
 4. Recharge is uniform thorughout the domian and is continuous.
 
 
-#### Using Birla et al. (2020) model in CAST ####
+## Using the Model in CAST
 
-Clicking the **Empirical Toolbox** box in the homepage (@fig-birla_f1a) will lead to the interface that lists all the empirical models available in the CAST. To use the Birla et al. (2020) model from the interface shown in the screenshot below, please click on the option ``Click here to see the model`` below the Birla et al. (2020) as shown on the screenshot below.
+Clicking the **Empirical Toolbox** box in the homepage (@fig-4-ii-02) will lead to the interface that lists all the empirical models available in the CAST. To use the Birla et al. (2020) model from the interface shown in the screenshot below, please click on the option ``Click here to see the model`` below the Birla et al. (2020) as shown on the screenshot below.
 
-![Selecting an empirical model](images/birla2020_f1a.png){#fig-birla_f1a fig-align="center" width="60%"}
+![Selecting an empirical model](images/birla2020/fig4-ii-02.png){#fig-4-ii-02 fig-align="center" width="60%"}
 
-##### Single computing interface #####
+***Single computing interface***
 
 The CAST user-interface is identical for both the analytical as well as empirical models which makes it more user-friendly. This is true for both single computing interface and multiple simulation interface. Therefore, the extensive details on using the [Liedl et al. (2005)](../an_model/liedl2005.qmd) model in CAST can also be used for the Birla et al. (2020).
 
 The only difference in each model interface lies in the model specific parameters. This can be observed in the CAST screenshot below: 
 
-![Parameters required in Birla et al. (2020) model](images/birla2020_f2.png){#fig-birla_f2 fig-align="center" width="50%"}
+![Parameters required in Birla et al. (2020) model](images/birla2020/fig4-ii-03.png){#fig-4-ii-03 fig-align="center" width="50%"}
 
 After all the required fields are filled up, a user needs to click on the  **``Generate Graph``** to get the result. Results are obtained as an absolute number below the ``Generate Graph`` button and also graphically, which provides the field plume length data from the database. This allows a visual comparison of the model $L_{max}$with the field data.
 
@@ -54,21 +54,21 @@ As explained in detail in the analytical model [Liedl et al. (2005)](../an_model
 
 **Dynamically comparing model results - using sliders**
 
-Sliders (see @fig-birla_f2) become activate only after the **``Generate Graph``** is clicked (see Interactive options in the Single computing interface). Sliders are provided for more critical model parameters that have been suggested in Birla et al. (2020) paper. Sliders changes the model input parameters; for which the output $L_{max}$ appears in the graph. This enables a dynamic computation and visualization. 
+Sliders (see @fig-4-ii-03) become activate only after the **``Generate Graph``** is clicked (see Interactive options in the Single computing interface). Sliders are provided for more critical model parameters that have been suggested in Birla et al. (2020) paper. Sliders changes the model input parameters; for which the output $L_{max}$ appears in the graph. This enables a dynamic computation and visualization.
 
-##### Multiple computing interface #####
+***Multiple computing interface***
 
 The multiple computing interface of the Birla et al. (2020) model is identical to the  interface of analytical model [Liedl et al. (2005)](../an_model/liedl2005.qmd). The goal of the multiple computing interface is to develop several scenarios and compare the output of these scenarios with that of the field data. As can be observed in the screenshot below, users have an option to select the site(s) they would like to compare their scenarios with.
 
-![Selecting site to compare using multiple computing interface of CAST](images/birla2020_f3.png){#fig-birla_f3 fig-align="center" width="60%"}
+![Selecting site to compare using multiple computing interface of CAST](images/birla2020/fig4-ii-04.png){#fig-4-ii-04 fig-align="center" width="60%"}
 
 The interface of multiple computing interface is provided in the screenshot below. Details on the options are identical to that provided for [Liedl et al. (2005)](../an_model/liedl2005.qmd). The screenshot below is for clarification.
 
 
-![Available options for extracting model results from CAST interface.](images/birla2020_f4.png){#fig-birla_f4 fig-align="center" width="60%"}
+![Available options for extracting model results from CAST interface.](images/birla2020/fig4-ii-05.png){#fig-4-ii-05 fig-align="center" width="60%"}
 
 
-#### Reference {#refbirla2020}
+## Reference {#refbirla2020}
 
 Birla, s., Yadav, P.K., Mahalawat, P., Haendel, F., Liedl, R., Chahar, B. 2020. Influence of recharge rates on steady-state plume lengths. Jour. Contam. Hydrol. https://doi.org/10.1016/j.jconhyd.2020.103709
 

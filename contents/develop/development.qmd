@@ -1,0 +1,10 @@
+# 8. Development {.unnumbered}
+
+This section describes the CAST codebase and the main technologies used to
+develop and operate it.
+
+The section contains:
+
+1. [Code structure](code_structure.qmd)
+2. [Code libraries](code_libraries.qmd)
+3. [Code development](code_develop.qmd)

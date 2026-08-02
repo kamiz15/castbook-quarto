@@ -1,8 +1,8 @@
-### CAST Toolbox - Empirical Models
+# 4. Empirical Models {.unnumbered}
 
 In CAST the **Empirical models** are those that are neither analytical nor numerical. To distinguish further **empirical models** in CAST are those that are completely based on experimentation. The experiments can be numerical, based on data, or of any other form. In general **empirical model** will thus require some fit to experimental results. Literature provide only few **empirical models**. Thus, only two empirical models are part of the current version of CAST. These are briefly presented below and explained in details in the respective model simulation sections.
 
-#### Empirical models in CAST ####
+## Empirical Models in CAST
 Included models are (_see individual model page for details_):
 
 
@@ -19,11 +19,11 @@ $$
 
 
 
-#### Computing interfaces in CAST for empirical models ####
+## Computing Interfaces in CAST
 
 The empirical model interface of CAST can be accessed from the CAST [homepage](www.cast.iitd.ac.in). [Registration/Login](../../online/login.qmd) information are required for using empirical models. 
 
-![Accessing Empirical models toolbox in CAST](images/em_mod_f1.png){#fig-em_mod_f1 fig-align="center" width="60%"}
+![Accessing Empirical models toolbox in CAST](images/empirical-model-toolbox/fig4-01.png){#fig-4-01 fig-align="center" width="60%"}
 
 
 CAST provide the following two computing interfaces for each analytical and empirical models:
@@ -33,4 +33,4 @@ CAST provide the following two computing interfaces for each analytical and empi
 
 Details on these interfaces, which is identical to the interface for _analytical models_ are provided [here](../an_model/an_model.qmd). The screenshot provides the CAST interface to select a empirical model.
 
-![Selecting an empirical model](images/em_mod_f2.png){#fig-em_mod_f2 fig-align="center" width="60%"}
+![Selecting an empirical model](images/empirical-model-toolbox/fig4-02.png){#fig-4-02 fig-align="center" width="60%"}

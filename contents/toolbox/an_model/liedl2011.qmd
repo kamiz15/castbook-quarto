@@ -3,10 +3,10 @@
 
 ## Model description
 
-This model, based on [Liedl et al. (2011)](#refli2011), provides an estimate of a steady-state plume length ($L_{max}$ ) from a 3D model domain (see @fig-1-ii-01). This model extends the 2D model present in Liedl et al. (2005). As is in the 2D model, in this model too, the vertical orientation refers to $z$-axis being aligned to the aquifer thickness. The domain width and length is infinite in this model.
+This model, based on [Liedl et al. (2011)](#refli2011), provides an estimate of a steady-state plume length ($L_{max}$ ) from a 3D model domain (see @fig-3-ii-01). This model extends the 2D model present in Liedl et al. (2005). As is in the 2D model, in this model too, the vertical orientation refers to $z$-axis being aligned to the aquifer thickness. The domain width and length is infinite in this model.
 
 
-![Liedl et al. (2011)- conceptual set-up](images/liedl2011/fig1-ii-01.png){#fig-1-ii-01 fig-align="center" width="40%"}
+![Liedl et al. (2011)- conceptual set-up](images/liedl2011/fig3-ii-01.png){#fig-3-ii-01 fig-align="center" width="40%"}
 
 Liedl et al.(2011) provides the following implicit expression for $L_{max}$:
 
@@ -117,7 +117,7 @@ The **CAST** user-interface for all the analytical models are identical. This is
 
 The difference in each model interface is the model specific parameters. The 3D models as opposed to 2D models requires significantly more number of input parameters. This can be observed in the CAST screenshot below:
 
-![Single computing interface](images/liedl2011/fig1-ii-02.png){#fig-1-ii-02 fig-align="center" width="30%"}
+![Single computing interface](images/liedl2011/fig3-ii-02.png){#fig-3-ii-02 fig-align="center" width="30%"}
 
 Once the input data is placed in the box, user need to click on the `Generate Graph` button to get the result. Results are obtained as a absolute number below the `Generate Graph` button and also graphically, which provides field plume length data from the database. This allows a visual comparsion of model $L_{max}$ with the field data.
 
@@ -129,24 +129,24 @@ Such limits can be avoided for **offline** version of CAST.
 
 As detailed in the use of [Liedl et al. (2005) model - check here](liedl2005.qmd), the resulting graph provides several interactive options to evaluate results. The screenshot below provides the output of the **single computing mode** of CAST.
 
-![Interactive options in the Single computing interface](images/liedl2011/fig1-ii-03.png){#fig-1-ii-03 fig-align="center" width="30%"}
+![Interactive options in the Single computing interface](images/liedl2011/fig3-ii-03.png){#fig-3-ii-03 fig-align="center" width="30%"}
 
 
 
 ***Dynamically comparing model results using sliders***
 
-**Sliders** are activated once the `Generate Graph` button is clicked (see @fig-1-ii-03). **Sliders** are provided for more critical model parameters that have been suggested in [Liedl et al. (2011)](#refli2011) paper. **Sliders** changes the model input parameter; for which the output $L_{max}$ appears in the graph. This enables a dynamic computation and visualization. Delay in result output can be observed as Liedl et al. (2011) model computes $L_{max}$ iteratively.
+**Sliders** are activated once the `Generate Graph` button is clicked (see @fig-3-ii-03). **Sliders** are provided for more critical model parameters that have been suggested in [Liedl et al. (2011)](#refli2011) paper. **Sliders** changes the model input parameter; for which the output $L_{max}$ appears in the graph. This enables a dynamic computation and visualization. Delay in result output can be observed as Liedl et al. (2011) model computes $L_{max}$ iteratively.
 
 
 ***Multiple computing interface***
 
 The **multiple computing interface** of the Liedl et al. (2011) model is identical to other analytical model interface. The goal of the multiple computing interface to develop several scenario and compare the output of the scenario with that of the field data. As can be observed in the screenshot below, users has an option to select the site(s) they would like to compare their scenarios. 
 
-![Selecting field site to compare model results](images/liedl2011/fig1-ii-04.png){#fig-1-ii-04 fig-align="center" width="25%"}
+![Selecting field site to compare model results](images/liedl2011/fig3-ii-04.png){#fig-3-ii-04 fig-align="center" width="25%"}
 
 The interface of **multiple computing interface** is provided in the screenshot below. Details on the options are identical to that provided for Liedl et al. (2005) model that is provided [here](liedl2005.qmd).
 
-![Interface for multiple computing interface.](images/liedl2011/fig1-ii-05.png){#fig-1-ii-05 fig-align="center" width="60%"}
+![Interface for multiple computing interface.](images/liedl2011/fig3-ii-05.png){#fig-3-ii-05 fig-align="center" width="60%"}
 
 ## Reference
 
