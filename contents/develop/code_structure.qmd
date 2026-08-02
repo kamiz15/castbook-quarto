@@ -1,30 +1,91 @@
-# i. Code Structure {.unnumbered}
+# i. Architecture and Code Structure {.unnumbered}
 
+## Application Architecture
 
-![The main code structure of CAST](images/code-structure/fig8-i-01.png){#fig-8-i-01 fig-align="center" width="60%"}
+CAST separates the public website from the interactive scientific dashboards.
+This keeps normal page routing, authentication, and database access in Flask
+while Panel handles interactive model controls and Bokeh results.
 
-The structuring of CAST is as follows :
+| Component | Main responsibility |
+|---|---|
+| **Nginx** | Provides the public entry point, serves static files, and forwards requests to Flask or Panel. |
+| **Flask** | Handles accounts, sessions, site data, model wrapper pages, input validation, and report routes. |
+| **Panel** | Runs the analytical, empirical, numerical, and data-analysis dashboards. |
+| **MySQL** | Stores user accounts and site records. |
+| **Model modules** | Calculate analytical and empirical results or start MODFLOW 6 simulations through FloPy. |
 
-* `groundwater` : The main coding folder 
-* `create_database.py` : Python file for creating/updating database 
-* `run.py` : Python file for running CAST
-* `mf2005, mf2005.exe,mt3dms,mt3dms.exe` : Executable files used by the numerical mode
-* `requirements.txt` : Python packages/libraries used in the project
+In the Docker deployment, a browser connects to Nginx on port 80. Nginx sends
+normal application requests to Flask on port 5000 and requests below
+**/panel/** to Panel on port 5007. Flask and Panel share environment settings
+and access the same MySQL database.
 
-Other files include _readme_, _licensing_, _installation_ files etc.
-@fig-8-i-01 shows the screenshot of the main code structure of CAST.
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig8-i-01.png**
 
+Suggested diagram: Browser to Nginx, followed by separate Flask and Panel
+paths, with both connected to MySQL and the model modules. Show FloPy and
+MODFLOW 6 below the numerical model module.
 
+Future location: **contents/develop/images/code-structure/fig8-i-01.png**
+:::
 
-The struction of the main coding folder `groundwater` is as follows :
+## Repository Layout
 
-* `static` : Cascading Style Sheets, images, fonts, comma separated value files and JavaScript codes
-* `templates` : HTML codes
-* `NumericalModel` : Code for the numerical model
+The repository is organized by responsibility rather than as one large Python
+package. The most important locations are:
 
+| Location | Contents |
+|---|---|
+| **app.py** and **settings.py** | Flask application setup, account routes, and environment-backed configuration. |
+| **site_routes.py** and **\*_routes.py** | Site database pages plus analytical, empirical, numerical, and AEM routes. |
+| **\*_models.py** | Scientific calculations and numerical solver integration. |
+| **panel_server.py** and **panel_\*.py** | Panel application registration, dashboards, and shared dashboard helpers. |
+| **data_queries.py** and **db_setup.sql** | Runtime database access and the matching Compose bootstrap schema. |
+| **templates/** and **static/** | Jinja pages, CSS, browser JavaScript, images, and report assets. |
+| **aem/** and **data_analysis/** | AEM and data-analysis implementation modules. |
+| **tests/** | Automated equation, route, security, database, reporting, and numerical checks. |
+| **Dockerfile**, **docker-compose.yml**, and **nginx/** | Container image, service definitions, health checks, and reverse-proxy rules. |
+| **archive/** | Retired or reference material that is not part of the active runtime. |
 
-![The main code structure of CAST](images/code-structure/fig8-i-02.png){#fig-8-i-02 fig-align="center" width="60%"}
+Local secrets, logs, solver binaries, generated reports, and numerical work
+directories are excluded from version control. They should not be added to a
+commit.
 
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig8-i-02.png**
 
-Other files include python files consisting of routes, initialisation and integration codes for CAST.
-@fig-8-i-02 shows the screenshot of the code structure of the `groundwater` folder of the CAST.
+Suggested screenshot: the current repository root in an editor, with the main
+route files, model files, **templates**, **static**, **tests**, and deployment
+files visible.
+
+Future location: **contents/develop/images/code-structure/fig8-i-02.png**
+:::
+
+## Request and Model Flow
+
+A normal model request follows this sequence:
+
+1. Flask confirms the user session and loads any selected site record.
+2. A route validates and combines database values, defaults, and manual input.
+3. Flask renders a Jinja wrapper page containing the model form and a Panel
+   output area.
+4. The corresponding Panel application reads the submitted values and calls
+   the appropriate model module.
+5. Analytical and empirical modules calculate results directly. Numerical
+   modules create a FloPy workspace and run MODFLOW 6.
+6. Panel and Bokeh display the result. Supported routes can also create a PDF
+   through **pdf_report.py**.
+
+The active implementation is the source of truth. Archived specifications and
+retired files can explain earlier design decisions, but they should not be used
+to determine current runtime behavior.
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig8-i-03.png**
+
+Suggested diagram: the request sequence from login and site selection through
+Flask validation, the Panel dashboard, model execution, visualization, and PDF
+export.
+
+Future location: **contents/develop/images/code-structure/fig8-i-03.png**
+:::

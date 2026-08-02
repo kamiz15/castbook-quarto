@@ -1,35 +1,130 @@
-# iii. Code Development {.unnumbered}
+# iii. Development Workflow {.unnumbered}
 
-## Offline Development
+## Prepare a Development Environment
 
-***Choosing a framework***
-For the development of CAST, a Python framework had to be chosen. Django and Flask are two of the most popular python frameworks suited for the project. Flask was chosen as because it is flexibile, extensible and light weighted while Django being a heavier framework would not be as much suitable.
+The Docker Compose workflow in [Run CAST locally](../start/run_locally.qmd) is
+the simplest way to run the complete stack. Developers who need direct access
+to Python processes can instead use a Python 3.11 virtual environment, a local
+MySQL 8 server, and a local MODFLOW 6 executable.
 
-***Virtual environment***
-In order to keep all projects separate from each other, a virtual environment is a must. For example, Project A requires version 2 of the python library NumPy, however, Project B requires version 3 of NumPy. It would be tedious to upgrade and downgrade the versions while switching between the projects. Hence, to organise and make projects independent of each other, it is important to have virtual environments. 
+Create the environment and install both runtime and test dependencies:
 
-Pipenv can also be used for the same purpose with a virtual environment inside it. For the development of CAST, a virtual environment is used.
+~~~powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements-dev.txt
+Copy-Item .env.example .env
+~~~
 
-***Choosing a database management system***
-Database options are many i.e. NoSQL, SQLite, MongoDB, MySQL. For this project, a relational mapping was needed in order to connect the user login information with the data of all models in a secure manner. Therefore, MySQL was chosen. SQLAlchemy is a python wrapper for MySQL that interacts with the database easily.
+Edit **.env** for the local database, Flask, Panel, and MODFLOW paths. At a
+minimum, provide a random **SECRET_KEY**, **DB_USER**, and **DB_PASSWORD**.
+Typical direct-development values use **DB_HOST=localhost**,
+**PANEL_PUBLIC_BASE=http://localhost:5007**, and an absolute **MF6_EXE** path.
+The **.env** file contains secrets and must never be committed.
 
-## Online Development
+Start Panel in one activated terminal:
 
-***Baadal***
-CAST has been deployed on [Baadal](https://baadal.iitd.ac.in/baadal) cloud server of Indian Institute of Technology Delhi in an  an Ubuntu 18.04 server with 2CPU, 4GB RAM and 80GB HDD (virtual machine) of B.
+~~~powershell
+python panel_server.py
+~~~
 
-## SSH
-The secure shell protocol provides encryption to secure the connection between a client and a server. At IIT Delhi, an IP address was given that was allocated for CAST, so the given network was secured in this manner : `ssh root_name@given_ip_address`, which then adds the IP in the known hosts. 
-After this, a public rsa key pair is generated for logging into the SSH account and saved. More commands like `chmod 700` and `chmod 600` are run to ensure that only the owner can read, write and execute on the directories.
-Further, various configuration files are setup for the SSH in this process.
+Start Flask in a second activated terminal:
 
-## Firewall
-A firewall basically acts as a protective barrier between the incoming and outgoing traffic of network. For enabling a firewall a UFW (Uncomplicated Firewall) is installed in the server. As it's name suggests it is one of the most easiest way of setting up a firewall. Various rules like `ufw allow ssh`, `ufw allow 5000` are enabled so that only the SSH connections are allowed.
+~~~powershell
+python app.py
+~~~
 
-After more configuration file setups, the CAST project is uploaded onto this server inside a virtual environment. Upon running the project, after these steps we would still be in a development server. A development server is only useful for testing, it should not be shared with the public. 
+Open **http://localhost:5000**. Direct Panel pages use
+**http://localhost:5007**. When using Docker Compose, open
+**http://localhost** instead.
 
-## Web Servers
-The final aim is to direct the HTTP requests to Flask(CAST) for which we require a web server. Nginx and Gunicorn work together for this purpose. Nginx acts as a front end web server and takes all static files like CSS, JavaScript, images etc. and then Gunicorn helps in acting as a medium by sending these requests to Flask and is basically a WSGI(Web Server Gateway Interface) HTTP Server for UNIX. There are some more final configurations done after this to ensure that the website experience is smooth and much more. 
-The domain name can then be changed to anything in one of the configuration files, in this case it is : www.cast.iitd.ac.in
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig8-iii-01.png**
 
+Suggested screenshot: two terminals running Flask and Panel successfully, with
+the CAST home page open in a browser.
 
+Future location: **contents/develop/images/code-development/fig8-iii-01.png**
+:::
+
+## Make a Focused Change
+
+Before editing, identify the layer that owns the behavior:
+
+- model equations belong in the analytical, empirical, BIOSCREEN, numerical,
+  or AEM implementation modules;
+- request validation and public URLs belong in the route modules;
+- interactive controls and plots belong in the Panel applications;
+- shared labels, units, and database mappings belong in **symbol_registry.py**;
+- database behavior belongs in **data_queries.py**, with matching bootstrap
+  changes in **db_setup.sql**; and
+- shared report layout belongs in **pdf_report.py**.
+
+Keep changes within the responsible layer and reuse existing shared templates
+or helpers where they already solve the same problem.
+
+***Adding a model***
+
+A new model normally requires:
+
+1. A tested calculation function in the appropriate model module.
+2. A Panel application for single or multiple simulations.
+3. Registration of the Panel path in **panel_server.py**.
+4. A Flask route, wrapper template, and any required PDF export route.
+5. A conceptual image and navigation link.
+6. Symbol and database mappings when site autofill applies.
+7. Equation, route, validation, and report tests appropriate to the feature.
+
+## Test the Change
+
+Run the smallest relevant test while developing, then run the full suite before
+publishing:
+
+~~~powershell
+python -m pytest tests/test_model_equations.py -q
+python -m pytest -q
+~~~
+
+Changes to Docker, Nginx, or environment settings should also be checked with:
+
+~~~powershell
+docker compose config
+docker compose up --build
+docker compose ps
+~~~
+
+Complete a short browser check for the changed workflow. For model work, verify
+authentication, site selection, manual inputs, the Panel result, error states,
+and PDF export when supported. Numerical changes should include a small-grid
+run and must respect the configured cell and solver-time limits.
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig8-iii-02.png**
+
+Suggested screenshot: a successful pytest summary and the Compose services in
+a healthy state.
+
+Future location: **contents/develop/images/code-development/fig8-iii-02.png**
+:::
+
+## Protect Data and Configuration
+
+- Never commit **.env**, credentials, user data, logs, generated reports,
+  solver binaries, or numerical workspaces.
+- Keep production cookies secure and serve public deployments through HTTPS.
+- Do not expose the Flask or Panel development servers directly to the public.
+- Use Nginx and Gunicorn for a deployed instance.
+- Treat **data_queries.py** as the runtime schema source of truth. Table changes
+  also require a reviewed update to **db_setup.sql** and schema tests.
+- Record implementation changes in the application README and update this
+  manual when user-visible behavior or contributor instructions change.
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig8-iii-03.png**
+
+Suggested screenshot: a clean Git status showing that **.env**, local logs,
+solver files, and generated run directories are ignored.
+
+Future location: **contents/develop/images/code-development/fig8-iii-03.png**
+:::
