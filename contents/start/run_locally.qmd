@@ -1,58 +1,475 @@
-# Run CAST locally
+# 0. Run CAST locally {.unnumbered}
 
-Most people use CAST through its hosted website and never need to install
-anything. Run it locally only if you want your **own** private instance — for
-teaching, offline use, or development.
+## i. What a local CAST installation provides {.unnumbered}
 
-CAST ships as a Docker Compose stack (web app, interactive model pages, database
-and numerical solver together), so a full instance starts with one command. You
-do **not** need to install Python, MySQL or MODFLOW yourself — they live inside
-the containers.
+Most users can work with CAST through the hosted website without installing
+anything. A local installation is useful when you need:
 
-## Prerequisites
+- a private CAST instance for teaching or demonstrations;
+- access when the hosted website is unavailable;
+- a development environment for changing or testing CAST; or
+- local control of the database and generated model results.
 
-- [Docker](https://docs.docker.com/get-docker/) with Docker Compose v2
-- Git
+The recommended local installation uses Docker Compose. Docker builds and runs
+the complete CAST stack as four coordinated services:
 
-## 1. Get the code
+| Service | Purpose |
+|---|---|
+| **nginx** | Provides the single browser entry point at **http://localhost**. |
+| **flask** | Serves the CAST website, authentication, database pages, and model routes. |
+| **panel** | Serves the interactive model dashboards behind the Nginx proxy. |
+| **db** | Runs MySQL and stores user accounts and site data in a persistent Docker volume. |
 
-```bash
+The CAST Docker image also installs MODFLOW 6. You do not need to install
+Python, MySQL, Panel, or MODFLOW directly on the host computer when you use this
+method.
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig0-i-01.png**
+
+Suggested screenshot or diagram: the four Docker services, with the browser
+connecting to Nginx and Nginx routing requests to Flask and Panel.
+
+Future location: **contents/start/images/run-locally/fig0-i-01.png**
+:::
+
+## ii. Install and verify the prerequisites {.unnumbered}
+
+Install the following software before downloading CAST:
+
+1. **Git**, used to download and update the source code.
+2. **Docker with Docker Compose v2**.
+   - On Windows and macOS, Docker Desktop includes Docker Compose.
+   - On Linux, install Docker Engine and the Docker Compose plugin.
+3. **A web browser**, such as Firefox, Chrome, Edge, or Safari.
+
+The first build downloads container images, Python packages, and the official
+MODFLOW 6 release. A stable internet connection is therefore required for the
+first installation and for later updates that change the image.
+
+Open PowerShell, Windows Terminal, Terminal, or another command shell and run:
+
+~~~bash
+git --version
+docker --version
+docker compose version
+docker info
+~~~
+
+Each command should complete without an error. **docker info** confirms that the
+Docker service is running, not only that the command-line program is installed.
+If **docker info** cannot connect to the Docker daemon, start Docker Desktop or
+the Docker service and try again.
+
+::: {.callout-tip}
+On Windows, wait until Docker Desktop reports that the engine is running before
+continuing. Starting the application before Docker is ready is a common cause
+of connection errors.
+:::
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig0-ii-01.png**
+
+Suggested screenshot: Docker Desktop showing that the engine is running, or a
+terminal showing successful output from the four prerequisite checks.
+
+Future location: **contents/start/images/run-locally/fig0-ii-01.png**
+:::
+
+## iii. Download the CAST source code {.unnumbered}
+
+Choose a parent directory in which the new **cast** folder should be created.
+Then clone the application repository:
+
+~~~bash
 git clone https://github.com/kamiz15/Groundwater-Contamination-Website.git cast
 cd cast
-```
+~~~
 
-## 2. Configure
+The repository uses **final** as its default branch. A normal clone checks out
+that branch automatically.
 
-Copy the template and fill in a few values:
+Confirm that the current directory contains at least these files:
 
-```bash
+~~~text
+app.py
+docker-compose.yml
+Dockerfile
+.env.example
+.env.docker
+~~~
+
+Do not run **git clone** again if the **cast** directory already contains a
+clone of the repository. Enter the existing directory with **cd cast**, check
+that your work is saved, and use the update procedure in subsection vii
+instead.
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig0-iii-01.png**
+
+Suggested screenshot: the terminal after cloning CAST and entering the **cast**
+directory, with the required files visible.
+
+Future location: **contents/start/images/run-locally/fig0-iii-01.png**
+:::
+
+## iv. Configure the local environment {.unnumbered}
+
+CAST keeps secrets and machine-specific values in a file named **.env**. This
+file is intentionally excluded from Git, which helps prevent passwords and
+session keys from being committed to the repository.
+
+***Create .env from the template***
+
+Use the command for your shell.
+
+PowerShell:
+
+~~~powershell
+Copy-Item .env.example .env
+~~~
+
+Command Prompt:
+
+~~~bat
+copy .env.example .env
+~~~
+
+macOS or Linux shell:
+
+~~~bash
 cp .env.example .env
-```
+~~~
 
-In `.env` set:
+Open **.env** in a text editor. For example, Windows users can run:
 
-| Variable | Value |
-|---|---|
-| `SECRET_KEY` | Generate one: `python -c "import secrets; print(secrets.token_urlsafe(48))"` |
-| `DB_USER`, `DB_PASSWORD`, `MYSQL_ROOT_PASSWORD` | Any passwords you choose for the local database |
-| `SESSION_COOKIE_SECURE` | `false` for local `http://localhost` (otherwise you can't stay logged in) |
+~~~powershell
+notepad .env
+~~~
 
-The other defaults already point at localhost and can be left as they are.
+***Set the four required values***
 
-## 3. Start
+For a standard local Docker installation, replace the placeholder values for
+these variables:
 
-```bash
+~~~dotenv
+SECRET_KEY=replace_with_a_long_random_value
+DB_USER=cast_user
+DB_PASSWORD=replace_with_a_database_password
+MYSQL_ROOT_PASSWORD=replace_with_a_different_root_password
+~~~
+
+Do not copy the example values above unchanged. The purpose of each setting is:
+
+| Variable | What it controls | Recommended local value |
+|---|---|---|
+| **SECRET_KEY** | Signs login sessions and security tokens. | A stable random value containing at least 32 random bytes. |
+| **DB_USER** | Names the MySQL account used by CAST. | A simple name such as **cast_user**. |
+| **DB_PASSWORD** | Protects the MySQL account used by CAST. | A long password that is different from the root password. |
+| **MYSQL_ROOT_PASSWORD** | Protects the MySQL administrative account. | A second long password used only for database administration. |
+
+The safest approach is to create the values with a password manager. If Python
+is already installed, this command generates a 64-character hexadecimal value:
+
+~~~bash
+python -c print(__import__('secrets').token_hex(32))
+~~~
+
+If Python is not installed on the host, Docker can run the same generator:
+
+~~~bash
+docker run --rm python:3.11-slim python -c print(__import__('secrets').token_hex(32))
+~~~
+
+Run the generator three times. Use one result for **SECRET_KEY**, one for
+**DB_PASSWORD**, and one for **MYSQL_ROOT_PASSWORD**. Hexadecimal output avoids
+characters that can be interpreted specially by an environment file.
+
+::: {.callout-important}
+Keep the same **SECRET_KEY** after users have registered. Changing it signs out
+existing sessions and invalidates security tokens.
+:::
+
+***Understand .env and .env.docker***
+
+The two files have different roles:
+
+- **.env** contains your private values. Docker Compose reads it for variable
+  substitution. Do not commit or share this file.
+- **.env.docker** contains tracked, non-secret settings for the container
+  network. It tells CAST to use the **db** service, serve Panel through
+  **/panel**, use plain HTTP cookies on localhost, and use the MODFLOW 6
+  executable installed inside the image.
+
+For the standard local Docker workflow, do not change **DB_HOST**,
+**PANEL_PUBLIC_BASE**, **PANEL_ALLOW_ORIGINS**, or **MF6_EXE**. The correct
+container values are already supplied by **.env.docker**.
+
+The remaining entries copied from **.env.example** can normally keep their
+defaults for a private local installation. In particular:
+
+- **DB_NAME=cast_project** is the default database name.
+- SMTP values may remain empty if email delivery is not configured.
+- **DEMO_BYPASS_LOGIN** should remain **false** for normal use.
+- **SESSION_COOKIE_SECURE** is already set to **false** in **.env.docker**
+  because the local site uses **http://localhost**.
+
+***Check the file before starting***
+
+Make sure none of the four required values still contains a required-value
+placeholder. Do not add spaces around the equals signs.
+
+Validate the Compose configuration without printing the resolved secrets:
+
+~~~bash
+docker compose config --quiet
+~~~
+
+No output and an exit code of zero means that the Compose file can be resolved.
+If Docker reports that a required variable is missing, reopen **.env**, correct
+the named value, save the file, and run the validation command again.
+
+You can also confirm that Git is ignoring the private file:
+
+~~~bash
+git status --short
+~~~
+
+The **.env** file should not appear in the output.
+
+::: {.callout-warning}
+The command **docker compose config** without **--quiet** prints the resolved
+configuration and can include secret values. Do not copy that output into an
+issue, chat message, screenshot, or public document.
+:::
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig0-iv-01.png**
+
+Suggested screenshot: **.env** open in a text editor with the four required
+variable names visible. Blur or replace every real secret before capturing it.
+
+Future location: **contents/start/images/run-locally/fig0-iv-01.png**
+:::
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig0-iv-02.png**
+
+Suggested screenshot: a terminal after **docker compose config --quiet**
+completes successfully.
+
+Future location: **contents/start/images/run-locally/fig0-iv-02.png**
+:::
+
+## v. Build and start CAST {.unnumbered}
+
+From the repository root, run:
+
+~~~bash
 docker compose up --build -d
-```
+~~~
 
-When the containers are up, open **<http://localhost:5000>** and
-[register an account](accounts.qmd) to begin.
+The options have the following meanings:
 
-## Stop and update
+- **up** creates and starts the services.
+- **--build** builds the CAST image from the current source code.
+- **-d** leaves the services running in the background.
 
-```bash
-docker compose down          # stop
-git pull && docker compose up --build -d   # update to the latest version
-```
+The first build can take several minutes. Docker downloads the base images,
+installs the Python dependencies, downloads MODFLOW 6, creates the database
+volume, and starts the four services. Later starts are usually faster because
+Docker reuses downloaded layers.
 
-Your accounts and site data live in the database volume and survive updates.
+Check the service state:
+
+~~~bash
+docker compose ps
+~~~
+
+The **nginx**, **flask**, **panel**, and **db** services should be running.
+Services with health checks may briefly show **starting** before they show
+**healthy**.
+
+If a service does not become healthy, inspect recent logs:
+
+~~~bash
+docker compose logs --tail 100
+~~~
+
+To follow new log messages as they are written:
+
+~~~bash
+docker compose logs -f
+~~~
+
+Press **Ctrl+C** to stop following the logs. This does not stop the containers.
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig0-v-01.png**
+
+Suggested screenshot: the first **docker compose up --build -d** command
+completing without an error.
+
+Future location: **contents/start/images/run-locally/fig0-v-01.png**
+:::
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig0-v-02.png**
+
+Suggested screenshot: **docker compose ps** showing all four CAST services
+running and healthy.
+
+Future location: **contents/start/images/run-locally/fig0-v-02.png**
+:::
+
+## vi. Open and verify the local site {.unnumbered}
+
+Open the following address in a browser:
+
+<http://localhost>
+
+Use **http**, not **https**, for the standard local configuration. Do not open
+port 5000 or port 5007 when using Docker Compose. Nginx provides the intended
+entry point on port 80 and routes model requests to the correct internal
+service.
+
+Complete this first-run check:
+
+1. Confirm that the CAST home page loads.
+2. Select **Sign Up** and register a local account.
+3. Log in with the new account.
+4. Open the site database.
+5. Add one test site manually or upload a valid CSV file.
+6. Open an analytical single-scenario page and confirm that the page loads.
+7. Open a numerical page only after the other checks pass.
+8. Run a small test scenario and confirm that a result is produced.
+
+The MySQL database is created automatically during the first container start.
+The Docker image already contains MODFLOW 6, so numerical pages do not require
+a separate solver installation.
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig0-vi-01.png**
+
+Suggested screenshot: the CAST home page at **http://localhost** after a
+successful local start.
+
+Future location: **contents/start/images/run-locally/fig0-vi-01.png**
+:::
+
+## vii. Stop, restart, and update CAST {.unnumbered}
+
+***Stop CAST without deleting data***
+
+~~~bash
+docker compose down
+~~~
+
+This stops and removes the containers and network. It keeps the named volumes
+that contain MySQL data and queued numerical results.
+
+***Start an existing installation***
+
+~~~bash
+docker compose up -d
+~~~
+
+Use **--build** as well when the application source, dependencies, or Dockerfile
+has changed:
+
+~~~bash
+docker compose up --build -d
+~~~
+
+***Restart the running services***
+
+~~~bash
+docker compose restart
+~~~
+
+***Update CAST from GitHub***
+
+First make sure any local code changes are committed or backed up. Then run:
+
+~~~bash
+git pull --ff-only
+docker compose up --build -d
+docker compose ps
+~~~
+
+The **.env** file and Docker data volumes are not replaced by **git pull**.
+
+::: {.callout-warning}
+Do not run **docker compose down -v** as part of a normal stop or update. The
+**-v** option deletes the named volumes and permanently removes local accounts,
+site data, and stored job data unless you have a separate backup.
+:::
+
+## viii. Troubleshooting {.unnumbered}
+
+***Docker cannot connect to the daemon***
+
+Start Docker Desktop or the Docker service. Wait until it is ready, then run
+**docker info** again.
+
+***Port 80 is already in use***
+
+Another web server may already be listening on port 80. Stop the conflicting
+service, or change the host-side port in **docker-compose.yml** and open the new
+port in the browser.
+
+***A container is unhealthy or repeatedly restarts***
+
+Identify the affected service:
+
+~~~bash
+docker compose ps
+~~~
+
+Then inspect only that service. Replace **flask** with **panel**, **db**, or
+**nginx** when appropriate:
+
+~~~bash
+docker compose logs --tail 200 flask
+~~~
+
+***The database rejects the application password after .env was changed***
+
+MySQL uses **DB_USER**, **DB_PASSWORD**, and **MYSQL_ROOT_PASSWORD** when the
+database volume is created for the first time. Changing those values later does
+not automatically change accounts inside an existing database. Restore the
+previous values, or update the MySQL account deliberately before changing CAST
+to use a new password. Do not delete the database volume unless losing its data
+is acceptable.
+
+***Login returns to the login page***
+
+Confirm that the site was opened with **http://localhost** and that
+**SESSION_COOKIE_SECURE=false** remains in **.env.docker**. Secure cookies
+require HTTPS and are not sent to the standard local HTTP address.
+
+***Interactive model pages do not connect***
+
+Use the Nginx address at **http://localhost**. The Compose configuration serves
+Panel through the same-origin **/panel** path. Direct access to port 5007 is for
+a different, non-Compose development setup.
+
+***The first image build fails while downloading dependencies***
+
+Confirm that Docker has internet access and retry:
+
+~~~bash
+docker compose up --build -d
+~~~
+
+Docker normally reuses completed layers, so the retry does not repeat every
+successful step.
+
+::: {.callout-note appearance=simple icon=false}
+**[SC] Figure placeholder: fig0-viii-01.png**
+
+Suggested screenshot: **docker compose ps** beside a service-specific log
+command used for troubleshooting.
+
+Future location: **contents/start/images/run-locally/fig0-viii-01.png**
+:::
