@@ -1,10 +1,13 @@
 # 8. Development {.unnumbered}
 
-This section describes the CAST codebase and the main technologies used to
-develop and operate it.
+This section is for contributors who need to understand, change, test, or
+deploy CAST. It reflects the current application, which uses Flask, Panel,
+MySQL, MODFLOW 6, and Docker Compose.
 
 The section contains:
 
-1. [Code structure](code_structure.qmd)
-2. [Code libraries](code_libraries.qmd)
-3. [Code development](code_develop.qmd)
+1. [Architecture and Code Structure](code_structure.qmd)
+2. [Technology Stack](code_libraries.qmd)
+3. [Development Workflow](code_develop.qmd)
+
+For installation instructions, begin with [Run CAST locally](../start/run_locally.qmd).
