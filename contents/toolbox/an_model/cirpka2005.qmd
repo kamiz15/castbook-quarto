@@ -1,0 +1,127 @@
+---
+title: Cirpka et al. (2005) Model
+bibliography: ../cast2.bib
+csl: ../groundwater.csl
+---
+
+## Model description
+
+@cirpka2006 is 2D horizontal model that provides an estimate of a steady-state plume length ($L_{max}$). The model implements instantaneously reacting bi-molecular compounds resulting to a product. The models considers mixing of two reactants only in the directions transverse to groundwater flow.
+
+::: {#fig-fig3.4-i}
+
+![](images/cirpka2005/fig3.4-i.png "Conceptual setup of Cirpka2005 model"){
+width = "80%"
+height = "400px"
+fig-align="center" 
+fig-alt="Conceptual setup of Cirpka2005 model"}
+
+@cirpka2006: Conceptual setup
+
+:::
+
+
+
+@cirpka2006 provides the following explicit expression for $L_{max}$:
+
+$$
+L_{\max }=\frac{W_s^2}{16 \alpha_{T h}\left[\operatorname{erf}^{-1}\left(\frac{C_A^0}{\gamma C_D^C+C_A^0}\right)\right]^2}
+$$
+
+::: {.column-margin}
+**Symbols:**
+
+$S_w$ = Source width [L]<br>
+$\alpha_{Th}$ = Horizontal transverse dispersivity [L]<br>
+$\gamma$ = Reaction stoichiometric ratio [ ]<br>
+$C_{D}^\circ$ = Contaminant (Electron Donor) concentration [ML$^{-3}$]<br>
+$C_{A}^\circ$ = Partner reactant (Electron Acceptor) concentration [ML$^{-3}$]<br>
+
+
+:::
+
+
+**The model is based on the following assumptions:**
+
+1. There is a continuous `line` source of contaminant and `instantaneous` reaction active in the domain.
+2. A dissolved contaminant is assumed to react only at plume `fringe` because of transverse mixing but not inside the plume.
+3. The infinite domain is homogeneous, isotropic and fully saturated.
+
+
+
+## Using Cirpka et al. (2005) model in CAST
+
+***Single computing interface***
+
+The CAST user-interface for all the analytical models are identical. This is true for both single computing interface and multiple simulation interface. The identical interface simplifies the use of models in the CAST. Therefore, the extensive details on using the Liedl et al. (2005) model in CAST provided [here](liedl2005.qmd) can be used also for the @cirpka2006.
+
+The only differences in each model interface are the model specific parameters. This can be observed in the below screenshot (@fig-fig3.4-ii) of the interface of the @cirpka2006 model: 
+
+::: {#fig-fig3.4-ii}
+
+![](images/cirpka2005/fig3.4-ii.png "Cirpka et al. (2005)- input parameters"){
+width="80%" 
+height="350px" 
+fig-align="center" 
+fig-alt="Screenshot of Cirpka2005-single simulation interface"}
+
+@cirpka2006: Single computing interface
+
+:::
+
+
+Once the input data is placed in the box, user needs to click on the ``Run Model`` to get the result. Results are obtained as an _absolute number_ above the graph and also graphically (see @fig-fig3.4-iii), which provides the field plume length data from the database. This allows a visual comparison of the model $L_{max}$ with the field data.
+
+As explained in detail in the use of [Liedl et al. (2005)](liedl2005.qmd) model, the resulting graph provides several interactive options to evaluate results. The screenshot below provides the output of the single computing mode of CAST.
+
+::: {#fig-fig3.4-iii}
+
+![](images/cirpka2005/fig3.4-iii.png "Cirpka(2005)- Interactive options to evaluate results"){
+width="80%" 
+height="350px" 
+fig-align="center" 
+fig-alt="Screenshot of Cirpka2005-Interactive options to evaluate results"}
+
+@cirpka2006: Interactive options to evaluate results
+
+:::
+
+
+***Dynamically comparing model results using sliders***
+
+**Sliders** are activated once the ``Run Model`` is clicked. Sliders are provided for critical model parameters only. These changes the model input parameters; for which the output $L_{max}$ appears interactively in the graph. This enables a dynamic computation and visualization. 
+
+***Multiple computing interface***
+
+The multiple computing interface of the @cirpka2006 model is identical to [Liedl et al. (2005)](liedl2005.qmd) model interface. The goal of the multiple computing interface  is to develop several scenarios and compare the output of these scenarios with that of the field data. As can be observed in the screenshot below (@fig-fig3.4-iii), users have an option to select the site(s) they would like to compare their with.
+
+::: {#fig-fig3.4-iv}
+
+![](images/cirpka2005/fig3.4-iv.png "Cirpka(2005)- Site selection options in the multiple computing interface"){
+width="80%" 
+height="350px" 
+fig-align="center" 
+fig-alt="Screenshot of cirpka2005-Site selection options in the multiple computing interface"}
+
+@cirpka2006: Site selection options in the multiple computing interface
+
+:::
+
+
+The interface of multiple computing interface is provided in the screenshot below (@fig-fig3.4-v). Details on the options are identical to that provided for [Liedl et al. (2005)](liedl2005.qmd). The screenshot clarifies the available options.
+
+::: {#fig-fig3.4-v}
+
+![](images/cirpka2005/fig3.4-v.png "Cirpka et al. (2005)- Options for downloading and reusing results"){
+width="80%" 
+height="350px" 
+fig-align="center" 
+fig-alt="Screenshot of Cirpka2005-Options for downloading and reusing results"}
+
+@cirpka2006: Options for downloading and reusing results
+
+:::
+
+
+
+

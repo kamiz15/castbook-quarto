@@ -32,14 +32,16 @@ book:
     - part: contents/toolbox/an_model/an_model.qmd
       chapters:
         - contents/toolbox/an_model/liedl2005.qmd
-        - contents/toolbox/an_model/liedl2011.qmd
-        - contents/toolbox/an_model/chu2005.qmd
         - contents/toolbox/an_model/ham2004.qmd
+        - contents/toolbox/an_model/chu2005.qmd
+        - contents/toolbox/an_model/cirpka2005.qmd
+        - contents/toolbox/an_model/liedl2011.qmd
         - contents/toolbox/an_model/bioscreen.qmd
     - part: contents/toolbox/em_model/em_model.qmd
       chapters:
-        - contents/toolbox/em_model/mg2006.qmd
         - contents/toolbox/em_model/birla2020.qmd
+        - contents/toolbox/em_model/mg2006.qmd
+        - contents/toolbox/em_model/kohler2024.qmd
     - part: contents/toolbox/num_model_overview.qmd
       chapters:
         - contents/toolbox/num_model.qmd

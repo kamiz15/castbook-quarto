@@ -1,62 +1,105 @@
-# i. Maier and Grathwohl (2006) Model {.unnumbered}
+---
+title: Maier and Grathwohl (2006) model
+bibliography: ../cast2.bib
+csl: ../groundwater.csl
+---
 
 ## Model Description
 
-[Maier and Grathwohl](#refmg2006) 2D model provides an estimate of a steady-state plume length ($L_{max}$) using large numerical experimentation varying several site parameters. The model is then developed based on statistical fitting the $L_{max}$ with model parameters. Maier and Grathwohl (2006) conceptual set-up (see figure below) is similar to that of [Liedl et al. (2005)](../an_model/liedl2005.qmd).
 
-![Maier and Grathwohl (2006)- conceptual set-up](images/mg2006/fig4-i-01.png){#fig-4-i-01 fig-align="center" width="50%"}
+@maier2006 2D model provides an estimate of a steady-state plume length ($L_{max}$). The model is based on large number of numerical experimentation by varying several site parameters. The model expression is then developed based on statistical fitting the $L_{max}$ with model parameters. @maier2006 conceptual set-up (see figure below) is similar to that of [@liedl2005](../an_model/liedl2005.qmd).
 
-Maier and Grathwohl (2005) provides the following explicit expression for $L_{max}$ :
+::: {#fig-fig4.2-i}
+
+![](images/mg2006/fig4.2-i.png "Conceptual setup of MG2006 model"){
+width = "80%"
+height = "400px"
+fig-align="center" 
+fig-alt="Conceptual setup of MG2006 model"}
+
+@maier2006: Conceptual setup
+
+:::
+
+@maier2006 provides the following explicit expression for $L_{max}$ :
 
 $$
-L_{max} = 0.5\frac{M^2}{\alpha_{TV}}\bigg(\frac{\gamma C_{ED}}{C_{EA}}\bigg)^{0.3}
+ L_{max} = 0.5\frac{T_s^2}{\alpha_{Tv}}\bigg(\frac{\gamma C_{D}^o}{C_{A}^o}\bigg)^{0.3} 
 $$
 
 ::: {.column-margin}
 **Symbols**
 
-$M$ = Source Length [L]<br>
-$\alpha_{TV}$ = Vertical Transverse Dispersivity [L]<br>
+$T_s$ = Source Length [L]<br>
+$\alpha_{Tv}$ = Vertical Transverse Dispersivity [L]<br>
 $\gamma$ = Reaction stoichiometric ratio [ ]<br>
-$C_{ED}$ = Contaminant (Electron Donor) concentration [ML$^{-3}$]<br>
-$C_{EA}$ = Partner Reactant (Electron Acceptor) concentration [ML$^{-3}$]
+$C_{D}^o$ = Contaminant (Electron Donor) concentration [ML$^{-3}$]<br>
+$C_{A}^o$ = Partner Reactant (Electron Acceptor) concentration [ML$^{-3}$]
 :::
 
 **The model is based on the following assumptions:**
 
-1. An saturated homogeneous isotropic aquifer with uniform flow field. 
-2. Contamination source penetrates the entire aquifer thickness
-3. Mixing of reactants leads to instant reaction, which takes place at the fring of the plume leading to zero concentration.
+1. An saturated `homogeneous and isotropic` aquifer with uniform flow field. 
+2. Contamination source penetrates the `entire aquifer thickness`.
+3. Mixing of reactants leads to `instantaneous` reaction, which takes place at the fring of the plume leading to zero concentration.
 
 
 
-## Using the Model in CAST
+## Using @maier2006 model
 
 ***Single computing interface***
 
-The CAST user-interface for Both the empirical models are identical. This is true for both single computing interface and multiple simulation interface. The identical interface simplifies the use of models in the CAST. Therefore, the extensive details on using CAST computing interface is provided [here](../an_model/liedl2005.qmd). The information there can be used also for the Maier and Grathwohl (2006).
+The CAST user-interface for both hybrid and analytical models are identical. This is true for both single computing interface and multiple simulation interfaces. The identical interface simplifies the use of models in the CAST. The extensive details on using computing interface are provided [here - please check the lick](../an_model/liedl2005.qmd), which can be used also for the @maier2006 model.
 
-The difference in each model interfaces of CAST is the model specific parameters. This can be observed in the screenshot below: 
-
-![Parameters required in Maier and Grathwohl (2006) model](images/mg2006/fig4-i-02.png){#fig-4-i-02 fig-align="center" width="50%"}
+The difference in each model interfaces of CAST is the model specific parameters. This can be observed in the screenshot (@fig-fig4.2-ii) below: 
 
 
-Once the input data is placed in the box, user needs to click on the ``Generate Graph`` to get the result. Results are obtained as an absolute number below the Generate Graph button and also graphically, which provides the field plume length data from the database. This allows a visual comparison of the model $L_{max}$ with the field data. As explained in detail in [Liedl et al. (2005)](../an_model/liedl2005.qmd)  model, the resulting graph provides several interactive options to evaluate results. 
+::: {#fig-fig4.2-ii}
+
+![](images/mg2006/fig4.2-ii.png "Single computing interface"){
+width = "80%"
+height = "400px"
+fig-align="center" 
+fig-alt="Single computing interface of @maier2006 model"}
+
+@maier2006: Single computing interface
+
+:::
+
+
+Once the input data is placed in the box, user needs to click on the ``Run Model`` to get the result. Results are obtained as an absolute number above the generated graph and also graphically, which provides the field plume length data from the database. This allows a visual comparison of the model $L_{max}$ with the field data. As explained in detail in [Liedl et al. (2005)](../an_model/liedl2005.qmd)  model, the resulting graph provides several interactive options to evaluate results. 
 
  **Dynamically comparing model results - using sliders**
 
-**Sliders** (@fig-4-i-02) are activated once the ``Generate Graph`` is clicked (see Interactive options in the Single computing interface). Sliders are provided for only critical model parameters that affects $L_{max}$ the most. The Sliders change the model input parameters, for which the output $L_{max}$ appears in the graph. This enables a dynamic computation and visualization.
+**Sliders** (@fig-fig4.2-ii) are activated once the ``Run Model`` is clicked (see Interactive options in the Single computing interface). Sliders are provided for only critical model parameters that affects $L_{max}$ the most. The Sliders change the model input parameters, for which the output $L_{max}$ appears in the graph. This enables a dynamic computation and visualization.
 
 ***Multiple computing interface***
 
-The multiple computing interface of the Maier and Grathwohl (2006) model is identical to analytical model [Liedl et al. (2005)](../an_model/liedl2005.qmd) model interface. The goal of the multiple computing interface is to develop several scenarios and compare the output of these scenarios with that of the field data. As can be observed in the screenshot below, users have an option to select the site(s) they would like to compare their scenarios with.
+The multiple computing interface of the @maier2006 model is identical to analytical model [Liedl et al. (2005)](../an_model/liedl2005.qmd) model interface. The goal of the multiple computing interface is to develop several scenarios and compare the output of these scenarios with that of the field data. As can be observed in the screenshot below, users have an option to select the site(s) they would like to compare their scenarios with.
 
-![Selecting site to compare model results](images/mg2006/fig4-i-03.png){#fig-4-i-03 fig-align="center" width="50%"}
+::: {#fig-fig4.2-iii}
 
-The interface of multiple computing interface is provided in the screenshot below. Details on the options are identical to that provided for [Liedl et al. (2005)](../an_model/liedl2005.qmd). Interesting aspects of the interface are different options available for downloading model data and results in different formats. Also, important feature is the ability to load several model input parameter as a **.csv** file.
+![](images/mg2006/fig4.2-iii.png "Multiple computing interface"){
+width = "80%"
+height = "400px"
+fig-align="center" 
+fig-alt="Multiple computing interface of @maier2006 model"}
 
-![Multiple computing interface of CAST](images/mg2006/fig4-i-04.png){#fig-4-i-04 fig-align="center" width="50%"}
+@maier2006: Multiple computing interface
 
-## Reference {#refmg2006}
+:::
 
- U.Maier, P.Grathwohl (2006). Numerical experiments and field results on the size of steady state plumes. J Contam Hydrol, 85(1-2):33-52, https://doi.org/10.1016/j.jconhyd.2005.12.012
+The interface of multiple computing interface is provided in the screenshot (@fig-fig4.2-iv) below. Details on the options are identical to that provided for [Liedl et al. (2005)](../an_model/liedl2005.qmd). Interesting aspects of the interface are different options available for downloading model data and results in different formats. Also, important feature is the ability to load several model input parameter as a **.csv** file.
+
+::: {#fig-fig4.2-iv}
+
+![](images/mg2006/fig4.2-iv.png "Data input method in multiple computing interface"){
+width = "80%"
+height = "400px"
+fig-align="center" 
+fig-alt="Data input method in multiple computing interface of @maier2006 model"}
+
+@maier2006: Data input method in multiple computing interface
+
+:::
+

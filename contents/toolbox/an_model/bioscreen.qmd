@@ -1,22 +1,39 @@
-# v. BIOSCREEN-AT Model {.unnumbered}
+---
+title: BIOSCREEN-AT Model
+bibliography: ../cast2.bib
+csl: ../groundwater.csl
+---
 
 ## Model description
 
-The BIOSCREEN-AT, provided in [Karanovic et al. (2007)](#refbs) Model provides an exact analytical Solution to the BIOSCREEN Model. The model provides a three-dimensional solution for transport of dissolved contaminants, incorporating natural attenuation processes. As shown in @fig-3-v-01, the source is given as a patch specified-concentration boundary condition.
+The BIOSCREEN-AT, provided in @karanovic2007 model provides an exact analytical Solution to the BIOSCREEN Model. The model provides a 3D **transient** solution for transport of dissolved contaminants, incorporating several natural attenuation processes both at the source and the plume. As shown in @fig-fig3.6-i, the source is given as a patch specified-concentration boundary condition.
 
-![The BIOSCREEN-AT model concept](images/bioscreen/fig3-v-01.png){#fig-3-v-01 fig-align="center" width="70%"}
+
+
+::: {#fig-fig3.6-i}
+
+![](images/bioscreen/fig3.6-i.png "BIOSCREEN-AT- conceptual setup"){
+width="80%" 
+height="350px" 
+fig-align="center" 
+fig-alt="Screenshot of BIOSCREEN-AT-conceptual setup"}
+
+BIOSCREEN-AT: conceptual setup
+
+:::
+
 
 Karanovic et al. (2007) Provide the following expression for an exact analytical solution:
 
 
 $$
-c(x,y,z, t) = C_0 \frac{x}{8\sqrt{\pi D_x'}}\exp(-\gamma t)\times\\
-\times \int\limits_0^t\frac{1}{\xi^{3/2}}\exp\Bigg\{(\gamma-\lambda_{EFF})\xi- \frac{(x-v'\xi)^2}{4D_x'\xi}\Bigg\}\times\\
-\times\Bigg[\text{erfc}\Bigg\{\frac{y-\frac{w}{2}}{2\sqrt{D_y'\xi}}
-\Bigg\}-\text{erfc}\Bigg\{\frac{y+\frac{w}{2}}{2\sqrt{D_y'\xi}}
+c(x,y,z, t) = C_0 \frac{x}{8\sqrt{\pi D_x'}}\exp(-\Gamma t)\times\\
+\times \int\limits_0^t\frac{1}{\xi^{3/2}}\exp\Bigg\{(\Gamma-\lambda_{e})\xi- \frac{(x-v'\xi)^2}{4D_x'\xi}\Bigg\}\times\\
+\times\Bigg[\text{erfc}\Bigg\{\frac{y-\frac{W_s}{2}}{2\sqrt{D_y'\xi}}
+\Bigg\}-\text{erfc}\Bigg\{\frac{y+\frac{W_s}{2}}{2\sqrt{D_y'\xi}}
 \Bigg\}\Bigg]\times \\
-\times \Bigg[\text{erfc}\Bigg\{\frac{z-H}{2\sqrt{D_z'\xi}}\Bigg\}-
-\text{erfc}\Bigg\{\frac{z+H}{2\sqrt{D_z'\xi}} 
+\times \Bigg[\text{erfc}\Bigg\{\frac{z-T_s}{2\sqrt{D_z'\xi}}\Bigg\}-
+\text{erfc}\Bigg\{\frac{z+T_s}{2\sqrt{D_z'\xi}} 
 \Bigg\}\Bigg]\text{d}\xi
 $$ {#eq-eqbio2007} 
 
@@ -29,26 +46,26 @@ $c_0$ = initial source concentration (mg/L)<br/>
 $D'x$ = dispersion coefficient divided by retardation ($R$) factor $D_x/R$<br/>
 $D'y$ = dispersion coefficient divided by retardation factor $D_y/R$<br/>
 $D'z$ = dispersion coefficient divided by retardation factor $D_z/R$<br/>
-$\gamma$ = source decay coefficient <br/>
-$\lambda_{eff}$ = effective first order decay coefficient<br/>
-$W$ = source width (m)<br/>
-$H$ = source depth (m)
+$\Gamma$ = source decay coefficient <br/>
+$\lambda_{e}$ = effective first order decay coefficient<br/>
+$W_s$ = source width (m)<br/>
+$T_s$ = source depth (m)
 :::
 
 ## Model assumptions
 
 The model is based on the following assumptions: 
 
-1. Aquifer extends semi-infinite in $x$-direction, infinite in $y$-direction and extends from water table to relatively large depth.
-2. Groundwater flow is steady and one dimensional.
-3. The solute undergoes equilibrium sorption and first-order transformation reactions.
-4. The aquifer is homogeneous and $L_{max}$ is always found on the center line.
+1. Aquifer extends `semi-infinite` in $x$-direction, infinite in $y$-direction and extends from water table to relatively `large` depth.
+2. Groundwater flow is steady and one dimensional in an homogeneous aquifer
+3. The solute undergoes `equilibrium sorption` and `first-order` transformation reactions.
+4. $L_{max}$ is always found on the center line.
 
 ## Model parameters
 
 `Threshold Concentration`- The evaluation of the analytical solution shows, that the contaminant concentration $C \to 0$ for $x \to \infty$. Due to this asymptotical convergence, it is required to provide a threshold concentration, which defines the $L_{max}$ concentration contour level. This threshold should be close to a concentration of 0 or one could also choose value equaling water quality standards. The default value in CAST is set at $5e-5$ mg/l.
 
-`Time` - The BIOSCREEN analytical solution is a transient solution, which means that the state of the contaminant plume is dependent of time. The interaction of plume growing effects and attenuation processes will often result in a state of equilibrium in which the plume keeps a constant size. It is not possible to define a global valid period after which a steady state is reached, since this dependes heavily on the hydrogeologic conditions. However, a simple approximation can be used based on the decay within the plume $t=\frac{1}{\lambda}+5$ [y]. But it is important to note that this approach does **not** guarantee the steady state of the plume. It is therefore recommended to use a value of at least 20 years (default value).  
+`Time` - The BIOSCREEN analytical solution is a `transient solution`, which means that the state of the contaminant plume is dependent of time. The interaction of plume growing effects and attenuation processes will often result in a state of equilibrium in which the plume keeps a constant size. It is not possible to define a global valid period after which a steady-state is reached, since this dependes heavily on the hydrogeologic conditions. However, a simple approximation can be used based on the decay within the plume $t=\frac{1}{\Lambda}+5$ [y]. But it is important to note that this approach does **not** guarantee the steady-state of the plume. It is therefore recommended to use a value of at least 20 years (default value).  
 
 `Longitudinal Dispersivity` - is an aquifer parameter which effects the intensity of mixing in the liquid phase along the $x$-axis. The default value used in CAST is 10 m.  
 
@@ -62,13 +79,13 @@ The model is based on the following assumptions:
 
 `Source Decay Coefficient` - describes the degredation of the source and therefore the decrease of the contaminant concentration within the source. This can be the result of biological degredation of the contaminant or other forms of decay. 
 
-`Decay Coefficient` - $\lambda$ describes the decay of the contaminant within the plume. It occurs due to the same reasons as the source decay, but in addition a stronger degredation comes from oxidation and chemical reactions with other chemical compounds that are available.  
+`Decay Coefficient` - $\Lambda$ describes the decay of the contaminant within the plume. It occurs due to the same reasons as the source decay, but in addition a stronger degredation comes from oxidation and chemical reactions with other chemical compounds that are available.  
 
 ## Solution approach for BIOSCREEN-AT in CAST
 
 The concentration contour for BIOSCREEN-AT (eq. @eq-eqbio2007) includes an integral that has to be numerically solved for obtaining $L_{max}$. The $L_{max}$ in this case is the  _centereline_ maximum longitudinal extend of the selected threshold concentration contour. 
 
-CAST uses [Gauss-Legendre Quadrature](https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_quadrature) to solve for $C(x,y,z)$ using eq. @eq-eqbio2007. The Gauss-Legendre Quadrature method requires specifying the number of sample points (called Gauss points), based on which corresponding specific weights are obtained. The weights are then used to obtain the solution. Generally, higher the Gauss points, the higher the accuracy of the solution. However, higher sample points also means a large number of computations. In CAST Python codes are developed  very identical to the  FORTRAN code provided in [Karanovic et al. (2007)](#refbs) to solve @eq-eqbio2007) (using Gauss-Legendre Quadrature method). Python library [Scipy](https://docs.scipy.org/doc/scipy/reference/special.html) provides functions for obtaining the roots and weights required by the Gauss-Legendre Quadrature method. 
+CAST uses [Gauss-Legendre Quadrature](https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_quadrature) to solve for $C(x,y,z)$ using eq. @eq-eqbio2007. The Gauss-Legendre Quadrature method requires specifying the number of sample points (called Gauss points), based on which corresponding specific weights are obtained. The weights are then used to obtain the solution. Generally, higher the Gauss points, the higher the accuracy of the solution. However, higher sample points also means a large number of computations. In CAST Python codes are developed  very identical to the  FORTRAN code provided in @karanovic2007 to solve @eq-eqbio2007) (using Gauss-Legendre Quadrature method). Python library [Scipy](https://docs.scipy.org/doc/scipy/reference/special.html) provides functions for obtaining the roots and weights required by the Gauss-Legendre Quadrature method. 
 
 ::: {.callout-note collapse="true" title="Python code for obtaining the Gauss-Legendre roots and weights"}
 ```python
@@ -78,7 +95,7 @@ weights = sp.special.roots_legendre(m)[1]
 :::
 
 
-Following the approach provided in [Karanovic et al. (2007)](#refbs) the limits of integration of eq. @eq-eqbio2007 is scaled. This is required for speeding up the computation. The codes used in CAST for this purpose can be seen by clicking the _dropdown_ button
+Following the approach provided in @karanovic2007 the limits of integration of eq. @eq-eqbio2007 is scaled. This is required for speeding up the computation. The codes used in CAST for this purpose can be seen by clicking the _dropdown_ button
 
 ::: {.callout-note collapse="true" title="Python code for scaling the limits of integration"}
 ```python
@@ -92,7 +109,7 @@ Following the approach provided in [Karanovic et al. (2007)](#refbs) the limits 
 ```
 :::
 
-Eq. @eq-eqbio2007 provides the solution for $C(x,y,z)$, i.e., concentration isosurface. However, we intend to find $L_{max}$, which is a centreline maximum longitudinal distance of the specificed threshold concentration. Thus, to obtain only $L_{max}$ we fix the domain (based on [Karanovic et al. (2007)](#refbs) ) as follows:
+Eq. @eq-eqbio2007 provides the solution for $C(x,y,z)$, i.e., concentration isosurface. However, we intend to find $L_{max}$, which is a centreline maximum longitudinal distance of the specificed threshold concentration. Thus, to obtain only $L_{max}$ we fix the domain (based on @karanovic2007 ) as follows:
 
 ```python
         # Fixing domain boundary to obtain Lmax
@@ -148,15 +165,48 @@ The CAST interface of BIOSCREEN-AT is identical to that for other analytical/emp
 
 ***Single computing simulation***
 
-First all input data needs to be defined (screenshot @fig-3-v-02). Then a graph is genereated, that shows the result of the computation in comparison to the field data from the CAST database (screenshot @fig-3-v-03).
+First all input data needs to be defined (screenshot @fig-fig3.6-ii). It has to be noted that BIOSCREEN-AT requires significantly higher number of input parameters due to multiple processes considered in the model.
+Then a graph is genereated, that shows the result of the computation in comparison to the field data from the CAST database (screenshot @fig-fig3.6-iii).
 
-![The CAST interface for BIOSCREEN-AT data input](images/bioscreen/fig3-v-02.png){#fig-3-v-02 fig-align="center" width="70%"}
+::: {#fig-fig3.6-ii}
 
-![The CAST interface for BIOSCREEN-AT output](images/bioscreen/fig3-v-03.png){#fig-3-v-03 fig-align="center" width="50%"}
+![](images/bioscreen/fig3.6-ii.png "BIOSCREEN-AT- data input interface"){
+width="80%" 
+height="350px" 
+fig-align="center" 
+fig-alt="Screenshot of BIOSCREEN-AT-data input interface"}
 
-Once the first computation of $L_{max}$ pressing `Generate graph` button is made, the CAST interface provides interface with **sliders** bars (@fig-3-v-04) for the most sensible model parameters.
+BIOSCREEN-AT: data input interface
 
-![Interactive sliders in CAST for BIOSCREEN-AT model](images/bioscreen/fig3-v-04.png){#fig-3-v-04 fig-align="center" width="50%"}
+:::
+
+::: {#fig-fig3.6-iii}
+
+![](images/bioscreen/fig3.6-iii.png "BIOSCREEN-AT- result interface for single computing"){
+width="80%" 
+height="350px" 
+fig-align="center" 
+fig-alt="Screenshot of BIOSCREEN-AT-result interface for single computing"}
+
+BIOSCREEN-AT: result interface for single computing
+
+:::
+
+
+Once the first computation of $L_{max}$ pressing `Run Model` button is made, the CAST interface provides interface with **sliders** bars (@fig-fig3.6-iv) for the most sensible model parameters.
+
+::: {#fig-fig3.6-iv}
+
+![](images/bioscreen/fig3.6-iv.png "BIOSCREEN-AT- interactive options for exploring result"){
+width="80%" 
+height="350px" 
+fig-align="center" 
+fig-alt="Screenshot of BIOSCREEN-AT-interactive options for exploring result"}
+
+BIOSCREEN-AT: interactive options for exploring result
+
+:::
+
 
 The **sliders** can be used to change the input values while simultaneously getting a feedback of how these changes effect the model result. This has the advantage that it is not required to generate a new graph which makes the effect of the parameter change more visible and clear.
 
@@ -168,11 +218,18 @@ Numerical computations are used to compute $L_{max}$. As such care has to be tak
 
 ***Multiple computing simulation***
 
-The multiple computing mode can be used to visualize different own case results in one graph, while still being able to compare to the CAST database. The interface for BIOSCREEN-AT is identical to other models. User can check  [Liedl et al. (2005)](../an_model/liedl2005.qmd) on details of using the **multiple computing interface**.
+The multiple computing mode can be used to visualize different own case results in one graph, while still being able to compare to the CAST database. The interface for BIOSCREEN-AT is identical to other models. User can check  [Liedl et al. (2005)](liedl2005.qmd) on details of using the **multiple computing interface**.
 
- Data in the interface can be inserted via the `add data` button or can be uploaded from a file. A sample file can be downloaded for purposes of correct formatting. It is possible to slect the desired sites to be schown in the graph. 
+Data in the interface can be inserted via the `add data` button or can be uploaded from a file (@fig-fig3.6-v). A sample file can be downloaded for purposes of correct formatting. It is possible to slect the desired sites to be schown in the graph. 
 
-![Multiple computing interface in CAST for BIOSCREEN-AT model](images/bioscreen/fig3-v-05.png){#fig-3-v-05 fig-align="center" width="50%"}
+::: {#fig-fig3.6-v}
 
-## References {#refbs}
-Karanovic, M., Neville, C.,  and Andrews, C., (2007), BIOSCREEN-AT: BIOSCREEN with an Exact Analytical Solution. Vol. 45(2), pp. 242-245, Groundwater.
+![](images/bioscreen/fig3.6-v.png "BIOSCREEN-AT- Multiple computing interface"){
+width="80%" 
+height="350px" 
+fig-align="center" 
+fig-alt="Screenshot of BIOSCREEN-AT-Multiple computing interface"}
+
+BIOSCREEN-AT: Multiple computing interface
+
+:::
