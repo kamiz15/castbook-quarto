@@ -24,15 +24,6 @@ The PACS Docker image also installs MODFLOW 6. You do not need to install
 Python, MySQL, Panel, or MODFLOW directly on the host computer when you use this
 method.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig1-i-01.png**
-
-Suggested screenshot or diagram: the four Docker services, with the browser
-connecting to Nginx and Nginx routing requests to Flask and Panel.
-
-Future location: **contents/start/images/run-locally/fig1-i-01.png**
-:::
-
 ## Install and verify the prerequisites
 
 Install the following software before downloading PACS:
@@ -65,15 +56,6 @@ the Docker service and try again.
 On Windows, wait until Docker Desktop reports that the engine is running before
 continuing. Starting the application before Docker is ready is a common cause
 of connection errors.
-:::
-
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig1-i-02.png**
-
-Suggested screenshot: Docker Desktop showing that the engine is running, or a
-terminal showing successful output from the four prerequisite checks.
-
-Future location: **contents/start/images/run-locally/fig1-i-02.png**
 :::
 
 ## Download the PACS source code
@@ -234,24 +216,6 @@ configuration and can include secret values. Do not copy that output into an
 issue, chat message, screenshot, or public document.
 :::
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig1-i-04.png**
-
-Suggested screenshot: **.env** open in a text editor with the four required
-variable names visible. Blur or replace every real secret before capturing it.
-
-Future location: **contents/start/images/run-locally/fig1-i-04.png**
-:::
-
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig1-i-05.png**
-
-Suggested screenshot: a terminal after **docker compose config --quiet**
-completes successfully.
-
-Future location: **contents/start/images/run-locally/fig1-i-05.png**
-:::
-
 ## Build and start PACS
 
 From the repository root, run:
@@ -295,24 +259,6 @@ docker compose logs -f
 
 Press **Ctrl+C** to stop following the logs. This does not stop the containers.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig1-i-06.png**
-
-Suggested screenshot: the first **docker compose up --build -d** command
-completing without an error.
-
-Future location: **contents/start/images/run-locally/fig1-i-06.png**
-:::
-
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig1-i-07.png**
-
-Suggested screenshot: **docker compose ps** showing all four PACS services
-running and healthy.
-
-Future location: **contents/start/images/run-locally/fig1-i-07.png**
-:::
-
 ## Open and verify the local site
 
 Open the following address in a browser:
@@ -338,15 +284,6 @@ Complete this first-run check:
 The MySQL database is created automatically during the first container start.
 The Docker image already contains MODFLOW 6, so numerical pages do not require
 a separate solver installation.
-
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig1-i-08.png**
-
-Suggested screenshot: the PACS home page at **http://localhost** after a
-successful local start.
-
-Future location: **contents/start/images/run-locally/fig1-i-08.png**
-:::
 
 ## Stop, restart, and update PACS
 
@@ -456,11 +393,3 @@ docker compose up --build -d
 Docker normally reuses completed layers, so the retry does not repeat every
 successful step.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig1-i-09.png**
-
-Suggested screenshot: **docker compose ps** beside a service-specific log
-command used for troubleshooting.
-
-Future location: **contents/start/images/run-locally/fig1-i-09.png**
-:::

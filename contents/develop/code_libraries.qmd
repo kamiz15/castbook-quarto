@@ -17,15 +17,6 @@ Panel and Bokeh are pinned to compatible versions. Other runtime packages use
 supported version ranges in **requirements.txt**. Developers should install
 from that file instead of choosing package versions independently.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig8-ii-01.png**
-
-Suggested diagram: Flask and Jinja serving the website beside Panel and Bokeh
-serving the interactive model interface.
-
-Future location: **contents/develop/images/code-libraries/fig8-ii-01.png**
-:::
-
 ## Scientific and Data Libraries
 
 | Technology | Use in PACS |
@@ -43,16 +34,6 @@ also place a platform-specific executable in the ignored **.modflow_bin/**
 directory. Solver binaries and generated numerical workspaces must stay out of
 Git.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig8-ii-02.png**
-
-Suggested diagram: scientific inputs passing through NumPy, SciPy, or Pandas,
-with numerical requests continuing through FloPy to MODFLOW 6 and all results
-continuing to plots or PDF reports.
-
-Future location: **contents/develop/images/code-libraries/fig8-ii-02.png**
-:::
-
 ## Database and Deployment
 
 PACS uses **MySQL 8.4** in Docker and connects with
@@ -65,15 +46,6 @@ reverse proxy, and **Docker Compose** to coordinate Nginx, Flask, Panel, and
 MySQL. Compose health checks prevent Nginx from starting before the application
 services are ready. Persistent volumes keep MySQL data and queued numerical job
 data across container restarts.
-
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig8-ii-03.png**
-
-Suggested screenshot: the four services reported as healthy by
-**docker compose ps**.
-
-Future location: **contents/develop/images/code-libraries/fig8-ii-03.png**
-:::
 
 Development-only packages are listed in **requirements-dev.txt**. It includes
 the runtime requirements and adds pytest, keeping production and test

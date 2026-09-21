@@ -19,16 +19,6 @@ normal application requests to Flask on port 5000 and requests below
 **/panel/** to Panel on port 5007. Flask and Panel share environment settings
 and access the same MySQL database.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig8-i-01.png**
-
-Suggested diagram: Browser to Nginx, followed by separate Flask and Panel
-paths, with both connected to MySQL and the model modules. Show FloPy and
-MODFLOW 6 below the numerical model module.
-
-Future location: **contents/develop/images/code-structure/fig8-i-01.png**
-:::
-
 ## Repository Layout
 
 The repository is organized by responsibility rather than as one large Python
@@ -51,16 +41,6 @@ Local secrets, logs, solver binaries, generated reports, and numerical work
 directories are excluded from version control. They should not be added to a
 commit.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig8-i-02.png**
-
-Suggested screenshot: the current repository root in an editor, with the main
-route files, model files, **templates**, **static**, **tests**, and deployment
-files visible.
-
-Future location: **contents/develop/images/code-structure/fig8-i-02.png**
-:::
-
 ## Request and Model Flow
 
 A normal model request follows this sequence:
@@ -80,12 +60,3 @@ The active implementation is the source of truth. Archived specifications and
 retired files can explain earlier design decisions, but they should not be used
 to determine current runtime behavior.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig8-i-03.png**
-
-Suggested diagram: the request sequence from login and site selection through
-Flask validation, the Panel dashboard, model execution, visualization, and PDF
-export.
-
-Future location: **contents/develop/images/code-structure/fig8-i-03.png**
-:::

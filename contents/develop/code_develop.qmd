@@ -39,15 +39,6 @@ Open **http://localhost:5000**. Direct Panel pages use
 **http://localhost:5007**. When using Docker Compose, open
 **http://localhost** instead.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig8-iii-01.png**
-
-Suggested screenshot: two terminals running Flask and Panel successfully, with
-the PACS home page open in a browser.
-
-Future location: **contents/develop/images/code-development/fig8-iii-01.png**
-:::
-
 ## Make a Focused Change
 
 Before editing, identify the layer that owns the behavior:
@@ -99,15 +90,6 @@ authentication, site selection, manual inputs, the Panel result, error states,
 and PDF export when supported. Numerical changes should include a small-grid
 run and must respect the configured cell and solver-time limits.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig8-iii-02.png**
-
-Suggested screenshot: a successful pytest summary and the Compose services in
-a healthy state.
-
-Future location: **contents/develop/images/code-development/fig8-iii-02.png**
-:::
-
 ## Protect Data and Configuration
 
 - Never commit **.env**, credentials, user data, logs, generated reports,
@@ -120,11 +102,3 @@ Future location: **contents/develop/images/code-development/fig8-iii-02.png**
 - Record implementation changes in the application README and update this
   manual when user-visible behavior or contributor instructions change.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig8-iii-03.png**
-
-Suggested screenshot: a clean Git status showing that **.env**, local logs,
-solver files, and generated run directories are ignored.
-
-Future location: **contents/develop/images/code-development/fig8-iii-03.png**
-:::
