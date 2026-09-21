@@ -18,11 +18,6 @@ complexity). The email address is unique: one account per email.
 1. Choose **Login** and enter your email and password.
 2. On success you land back on the home page, now signed in.
 
-::: {.callout-note}
-Login is rate-limited (a few attempts per minute) to protect accounts. If you are
-temporarily blocked after several failed attempts, wait a minute and try again.
-:::
-
 ## Log out
 
 Use **Log out** in the top bar. On a shared machine, always log out when you are
