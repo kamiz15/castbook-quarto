@@ -40,12 +40,6 @@ stack — nginx → Flask/Gunicorn + Panel → MySQL — ships as a Docker Compo
 project, so a full instance runs with a single command (see
 [Run PACS locally](contents/start/run_locally.qmd)).
 
-::: {.callout-note}
-PACS is a work in progress. Not every toolbox or model is fully implemented, and
-some interactivity is still limited — but the current state is already a useful
-assessment application.
-:::
-
 ::: {.callout-warning title="Non-responsibility declaration"}
 The authors of PACS and the organisations supporting its development cannot be
 held responsible for any results or output obtained from the website or the code.
