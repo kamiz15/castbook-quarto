@@ -2,7 +2,7 @@
 
 ## Prepare a Development Environment
 
-The Docker Compose workflow in [Run CAST locally](../start/run_locally.qmd) is
+The Docker Compose workflow in [Run PACS locally](../start/run_locally.qmd) is
 the simplest way to run the complete stack. Developers who need direct access
 to Python processes can instead use a Python 3.11 virtual environment, a local
 MySQL 8 server, and a local MODFLOW 6 executable.
@@ -43,7 +43,7 @@ Open **http://localhost:5000**. Direct Panel pages use
 **[SC] Figure placeholder: fig8-iii-01.png**
 
 Suggested screenshot: two terminals running Flask and Panel successfully, with
-the CAST home page open in a browser.
+the PACS home page open in a browser.
 
 Future location: **contents/develop/images/code-development/fig8-iii-01.png**
 :::

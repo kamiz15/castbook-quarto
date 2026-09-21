@@ -54,7 +54,7 @@ are polygons, circles, ellipses, and lines.
 @fig-6-i-01 identifies the main areas used to configure the model and construct
 the source zone.
 
-![AEM Source Designer overview showing the simulation settings, source canvas, JSON import control, and simulation control.](images/aem/fig6-i-01.png){#fig-6-i-01 fig-align=center width=90%}
+![AEM Model overview showing the simulation settings, source canvas, JSON import control, and simulation control.](images/aem/fig6-i-01.png){#fig-6-i-01 fig-align=center width=90%}
 
 1. Choose the model orientation.
 2. Define the physical, chemical, and computational input parameters.
@@ -64,7 +64,7 @@ the source zone.
    tools are **Polygon (1)**, **Circle (2)**, **Ellipse (3)**, **Line (4)**, and
    **Select (5)**.
 
-![Selecting a source-element type in the AEM Source Designer.](images/aem/fig6-i-02.png){#fig-6-i-02 fig-align=center width=60%}
+![Selecting a source-element type in the AEM Model.](images/aem/fig6-i-02.png){#fig-6-i-02 fig-align=center width=60%}
 
 5. To create a polygonal source zone, select **Polygon (1)** and place its
    vertices on the source pane as shown in @fig-6-i-03.

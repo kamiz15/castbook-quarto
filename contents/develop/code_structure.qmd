@@ -2,7 +2,7 @@
 
 ## Application Architecture
 
-CAST separates the public website from the interactive scientific dashboards.
+PACS separates the public website from the interactive scientific dashboards.
 This keeps normal page routing, authentication, and database access in Flask
 while Panel handles interactive model controls and Bokeh results.
 

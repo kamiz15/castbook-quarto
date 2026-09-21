@@ -1,8 +1,8 @@
-# CASTbook Quarto Manual
+# PACS manual (Quarto)
 
-This repository contains the Quarto version of the CAST manual for the Contamination Assessment and Site management Tool.
+This repository contains the Quarto version of the PACS manual for the Preliminary Assessment of Contaminated Sites.
 
-The manual documents CAST workflows, including local setup, site database use, analytical and empirical models, numerical models, and the AEM source designer.
+The manual documents PACS workflows, including local setup, site database use, analytical and empirical models, numerical models, and the AEM source designer.
 
 ## Preview locally
 
@@ -20,8 +20,8 @@ quarto render
 
 The rendered site is written to `_book/`, which is intentionally ignored by git.
 
-## CAST application source
+## PACS application source
 
-The CAST application code referenced by the local installation instructions is available at:
+The PACS application code referenced by the local installation instructions is available at:
 
 https://github.com/kamiz15/Groundwater-Contamination-Website

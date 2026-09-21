@@ -1,6 +1,6 @@
-# iii. Navigating CAST {.unnumbered}
+# iii. Navigating PACS {.unnumbered}
 
-The CAST home page opens on **Groundwater Contamination Assessment** with a set of
+The PACS home page opens on **Groundwater Contamination Assessment** with a set of
 toolbox tiles. Each tile opens one toolbox; the toolboxes are meant to be used in
 sequence.
 
@@ -12,14 +12,14 @@ sequence.
 | **Analytical Models** | Closed-form plume models | [Analytical Models](../toolbox/an_model/an_model.qmd) |
 | **Empirical Models** | Field-data correlations | [Empirical Models](../toolbox/em_model/em_model.qmd) |
 | **Numerical Models** | MODFLOW flow & transport | [Numerical Models](../toolbox/num_model.qmd) |
-| **AEM Source Designer** | Source geometry & parameter estimation | [AEM Source Designer](../toolbox/aem/aem.qmd) |
+| **AEM Model** | Source geometry & parameter estimation | [AEM Model](../toolbox/aem/aem.qmd) |
 
 ## Single vs. multiple computing
 
 Most model toolboxes offer two modes:
 
 - **Single computing** — define one set of inputs and generate one result graph,
-  compared against the CAST reference database. Once a first result is computed,
+  compared against the PACS reference database. Once a first result is computed,
   interactive **sliders** let you vary the most sensitive parameters and watch the
   result update without regenerating the graph.
 - **Multiple computing** — define several scenarios (typed in, or uploaded from a

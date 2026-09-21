@@ -52,12 +52,12 @@ The $C_{Thres}$ in this model allows to set the contaminant concentration to any
 
 ## Solving for $L_{max}$ using @liedl2011
 
-Iterative methods is required to solve for $L_{max}$ using eq.  @eq-eqli2011. This is because eq.  @eq-eqli2011 is implicit with respect to $L_{max}$. [Newtwon-Raphson](https://en.wikipedia.org/wiki/Newton%27s_method) iterative scheme is used in **CAST**. The details below very briefly describe the used scheme. 
+Iterative methods is required to solve for $L_{max}$ using eq.  @eq-eqli2011. This is because eq.  @eq-eqli2011 is implicit with respect to $L_{max}$. [Newtwon-Raphson](https://en.wikipedia.org/wiki/Newton%27s_method) iterative scheme is used in **PACS**. The details below very briefly describe the used scheme. 
 
 
 Newtwon-Raphson iterative methods requires finding the first derivative of eq. @eq-eqli2011, and a good starting value to initiate the iterator. 
 
-CAST uses central [Finite Difference](https://en.wikipedia.org/wiki/Finite_difference) scheme to obtain the required defferential. 
+PACS uses central [Finite Difference](https://en.wikipedia.org/wiki/Finite_difference) scheme to obtain the required defferential. 
 
 ::: {.callout-note collapse="true" title="Code for obtaining the differential"}
 ```python
@@ -98,7 +98,7 @@ else:
 ```
 :::
 
-The **main** iterative Newton-Raphson code that is used in the CAST can be found below. The convergence tolerance is set at 1e-06. The code uses only a initial value as an input.
+The **main** iterative Newton-Raphson code that is used in the PACS can be found below. The convergence tolerance is set at 1e-06. The code uses only a initial value as an input.
 
 ```python
 # Newton Raphson simulation using FD
@@ -118,13 +118,13 @@ def NR(x):
 ```
 
 
-## Using Liedl et al. (2011) model in CAST
+## Using Liedl et al. (2011) model in PACS
 
 ***Single computing interface***
 
-The **CAST** user-interface for all the analytical models are identical. This is true for both **single computing interface** and **multiple simulation interface**. The identical interface simplifies the use of models in the CAST. Therefore, the extensive details on using the @liedl2005 model in **CAST** provided [here](liedl2005.qmd) can be used also for the @liedl2011.
+The **PACS** user-interface for all the analytical models are identical. This is true for both **single computing interface** and **multiple simulation interface**. The identical interface simplifies the use of models in the PACS. Therefore, the extensive details on using the @liedl2005 model in **PACS** provided [here](liedl2005.qmd) can be used also for the @liedl2011.
 
-The difference in each model interface is the model specific parameters. The 3D models as opposed to 2D models requires significantly more number of input parameters. This can be observed in the CAST screenshot (@fig-fig3.5-ii) below:
+The difference in each model interface is the model specific parameters. The 3D models as opposed to 2D models requires significantly more number of input parameters. This can be observed in the PACS screenshot (@fig-fig3.5-ii) below:
 
 ::: {#fig-fig3.5-ii}
 
@@ -143,12 +143,12 @@ fig-alt="Single computing interface of Liedl2011 model"}
 Once the input data is placed in the boxes, user need to click on the `Run Model` button to get the result. Results are obtained as a absolute number above the `Generate Graph` and also graphically, which provides field plume length data from the database. This allows a visual comparsion of model $L_{max}$ with the field data.
 
 ::: {.callout-note title="Limited input range **Online** version"}
-The range of input parameter value in the **online** version of CAST is fixed. This is to ensure computation is possible on online mode. User are given feedback when the input value is beyond the allowed range.
+The range of input parameter value in the **online** version of PACS is fixed. This is to ensure computation is possible on online mode. User are given feedback when the input value is beyond the allowed range.
 
-Such limits can be avoided for **offline** version of CAST.
+Such limits can be avoided for **offline** version of PACS.
 :::
 
-As detailed in the use of [Liedl et al. (2005) model - check here](liedl2005.qmd), the resulting graph provides several interactive options to evaluate results. The screenshot below (@fig-fig3.5-iii) provides the output of the **single computing mode** of CAST.
+As detailed in the use of [Liedl et al. (2005) model - check here](liedl2005.qmd), the resulting graph provides several interactive options to evaluate results. The screenshot below (@fig-fig3.5-iii) provides the output of the **single computing mode** of PACS.
 
 
 ::: {#fig-fig3.5-iii}

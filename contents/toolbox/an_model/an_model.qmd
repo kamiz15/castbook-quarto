@@ -6,9 +6,9 @@ csl: ../groundwater.csl
 
 
 
-The analytical model toolbox within the CAST provides the solution for the steady-state plume length $L_{max}$. The toolbox currently includes **6** different models; each of them varying with the other with respect to model conditions, dimensionality, input quantities, and also orientation. Analytical model toolbox is the recommended step after the use of _Data Toolbox_ in the CAST work flow.
+The analytical model toolbox within the PACS provides the solution for the steady-state plume length $L_{max}$. The toolbox currently includes **6** different models; each of them varying with the other with respect to model conditions, dimensionality, input quantities, and also orientation. Analytical model toolbox is the recommended step after the use of _Data Toolbox_ in the PACS work flow.
 
-## Analytical models in CAST ##
+## Analytical models in PACS ##
 Included models are (_see individual model page for details_):
 
 
@@ -52,9 +52,9 @@ $$\times \Bigg[\text{erfc}\Bigg\{\frac{z-T_s}{2\sqrt{D_z'\xi}}\Bigg\}
 \Bigg\}\Bigg]\text{d}\xi$$
 
 
-## Computing interfaces in CAST ## 
+## Computing interfaces in PACS ## 
 
-CAST provide the following two computing interfaces for each analytical and empirical models:
+PACS provide the following two computing interfaces for each analytical and empirical models:
 
 I. Single computing interface \
 II. Multiple computing interface

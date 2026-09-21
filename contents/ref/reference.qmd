@@ -1,9 +1,9 @@
 # 9. Reference {.unnumbered}
 
 This section provides citation, contribution, support, and version information
-for CAST.
+for PACS.
 
 The section contains:
 
-1. [Cite CAST](cite.qmd)
-2. [CAST versions](version.qmd)
+1. [Cite PACS](cite.qmd)
+2. [PACS versions](version.qmd)

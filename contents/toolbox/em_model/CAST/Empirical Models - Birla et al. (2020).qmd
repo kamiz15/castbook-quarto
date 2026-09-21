@@ -1,4 +1,4 @@
-# CAST Toolbox - Empirical Models - Birla et al. (2020)
+# PACS Toolbox - Empirical Models - Birla et al. (2020)
 
 ### Birla et al. (2020) model detail
 
@@ -30,9 +30,9 @@ Birla, s., Yadav, P.K., Mahalawat, P., Haendel, F., Liedl, R., Chahar, B. 2020. 
 
 
 
-### Using Liedl et al. (2005) model in CAST
+### Using Liedl et al. (2005) model in PACS
 
-Clicking the **Empirical Toolbox** box in the homepage (@fig-birla2020_0) will lead to the interface that lists  all the empirical models available in the CAST. To use the Birla et al. (2020) model from the interface shown in the screenshot below, please click on the option **`Click here to see the model`** below the Birla et al. (2020) as shown on the  screenshot below.
+Clicking the **Empirical Toolbox** box in the homepage (@fig-birla2020_0) will lead to the interface that lists  all the empirical models available in the PACS. To use the Birla et al. (2020) model from the interface shown in the screenshot below, please click on the option **`Click here to see the model`** below the Birla et al. (2020) as shown on the  screenshot below.
 
 Image Birla2020_0:
 
@@ -40,15 +40,15 @@ Image Birla2020_0:
 
 ### Single computing interface
 
-The CAST user-interface is identical for both the analytical as well as empirical models which makes it more user-friendly. This is true for both single computing interface and multiple simulation interface. Therefore, the extensive details on using the [Liedl et al. (2005)](refli2005) model in CAST provided [here](refli) can also be referredfor the Birla et al. (2020).
+The PACS user-interface is identical for both the analytical as well as empirical models which makes it more user-friendly. This is true for both single computing interface and multiple simulation interface. Therefore, the extensive details on using the [Liedl et al. (2005)](refli2005) model in PACS provided [here](refli) can also be referredfor the Birla et al. (2020).
 
-The only difference in each model interface lies in the model specific parameters. This can be observed in the CAST screenshot below: 
+The only difference in each model interface lies in the model specific parameters. This can be observed in the PACS screenshot below: 
 
 Image Birla2020_1:
 
 After all the required fields are filled up, a user needs to click on the  **`Generate Graph`** to get the result. Results are obtained as an absolute number below the Generate Graph button and also graphically, which provides the field plume length data from the database. This allows a visual comparison of the model $L_{max}$with the field data.
 
-As explained in detail in the analytical model [Liedl et al. (2005)](refli2005) , the resulting graph provides several interactive options to evaluate results. The screenshot below provides the output of the single computing mode of CAST.
+As explained in detail in the analytical model [Liedl et al. (2005)](refli2005) , the resulting graph provides several interactive options to evaluate results. The screenshot below provides the output of the single computing mode of PACS.
 
 ### Dynamically comparing model results - using sliders
 

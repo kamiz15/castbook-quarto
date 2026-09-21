@@ -1,19 +1,19 @@
-# CAST — Groundwater Contamination Assessment {.unnumbered}
+# PACS — Groundwater Contamination Assessment {.unnumbered}
 
-**CAST** (Contamination Assessment and Site management Tool) is a browser-based
+**PACS** (Preliminary Assessment of Contaminated Sites) is a browser-based
 research platform for assessing groundwater quality and setting up contaminant
 transport models for BTEX-type contamination. It brings a site database,
 analytical, empirical and numerical transport models, and an analytic-element
 source designer together in one workflow — from field measurements to a
 communicable result.
 
-CAST is aimed at the **preliminary risk evaluation** of sites that have not yet
+PACS is aimed at the **preliminary risk evaluation** of sites that have not yet
 been assessed. It lets a user explore a site, run appropriate models, and reach
 an early site-assessment decision without stitching together separate tools.
 
 ## The toolboxes
 
-CAST is organised into toolboxes that are designed to be used in sequence:
+PACS is organised into toolboxes that are designed to be used in sequence:
 
 | Toolbox | What it does |
 |---|---|
@@ -21,33 +21,33 @@ CAST is organised into toolboxes that are designed to be used in sequence:
 | **Analytical Models** | Closed-form plume solutions — Liedl 2D & 3D, Chu, Ham, Cirpka, and BIOSCREEN-AT. |
 | **Empirical Models** | Field-data correlations for plume length — Maier & Grathwohl, Birla et al. |
 | **Numerical Models** | MODFLOW / MT3D-based flow & transport simulations, in horizontal and vertical setups. |
-| **AEM Source Designer** | Analytic-element source geometry, forward simulation, and inverse parameter estimation. |
+| **AEM Model** | Analytic-element source geometry, forward simulation, and inverse parameter estimation. |
 
 ## Suggested workflow
 
 1. Start with the **Site Database** toolbox to load and validate site data.
 2. Continue with an **Analytical** or **Empirical** model for a fast first estimate.
-3. Run the **Numerical** model toolbox for a spatially resolved simulation.
-4. Use the **AEM Source Designer** for source-geometry and parameter estimation.
+3. Run the **Numerical** model (MODFLOW/MT3DMS) for simple source geometries — 2D vertical and horizontal models.
+4. Use the **AEM Model** for source-geometry design and simulation in 2D horizontally and vertically oriented domains.
 
-## How CAST is built
+## How PACS is built
 
-CAST is a [Flask](https://flask.palletsprojects.com/) web application. Interactive
+PACS is a [Flask](https://flask.palletsprojects.com/) web application. Interactive
 model pages are served as [HoloViz Panel](https://panel.holoviz.org/) apps;
 numerical simulations run on [MODFLOW 6](https://www.usgs.gov/software/modflow-6)
 via [FloPy](https://flopy.readthedocs.io/); site data lives in MySQL. The whole
 stack — nginx → Flask/Gunicorn + Panel → MySQL — ships as a Docker Compose
 project, so a full instance runs with a single command (see
-[Run CAST locally](contents/start/run_locally.qmd)).
+[Run PACS locally](contents/start/run_locally.qmd)).
 
 ::: {.callout-note}
-CAST is a work in progress. Not every toolbox or model is fully implemented, and
+PACS is a work in progress. Not every toolbox or model is fully implemented, and
 some interactivity is still limited — but the current state is already a useful
 assessment application.
 :::
 
 ::: {.callout-warning title="Non-responsibility declaration"}
-The authors of CAST and the organisations supporting its development cannot be
+The authors of PACS and the organisations supporting its development cannot be
 held responsible for any results or output obtained from the website or the code.
 :::
 

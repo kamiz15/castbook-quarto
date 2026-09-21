@@ -1,7 +1,7 @@
 # 2. Site Database {.unnumbered}
 
 The Site Database stores site measurements and makes those values available to
-the CAST modelling and visualization workflows.
+the PACS modelling and visualization workflows.
 
 Continue to the [Site Database guide](database.qmd) for data categories,
 uploading, visualization, and statistical summaries.

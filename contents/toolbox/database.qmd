@@ -1,4 +1,4 @@
-## CAST Toolbox - Database Models
+## PACS Toolbox - Database Models
 
 The following steps must be taken.
 

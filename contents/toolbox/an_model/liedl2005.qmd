@@ -44,10 +44,10 @@ $C_{A}^\circ$ = Partner Reactant (Electron Acceptor) concentration [ML$^{-3}$]
 3. The contaminant source (Electron Donor) penetrates `entire thickness` of the aquifer.
  
 
-## Using Liedl et al. (2005) model in CAST
+## Using Liedl et al. (2005) model in PACS
 
 
-Clicking the **Analytical Toolbox** box in the homepage will lead to the interface that lists (@fig-fig3.1-ii) all the analytical models available in the CAST. To use the @liedl2005 model. From that interface, please click on the option **`about`** in the  **Liedl et al (2005)** as shown on the  screenshot (@fig-fig3.1-ii).
+Clicking the **Analytical Toolbox** box in the homepage will lead to the interface that lists (@fig-fig3.1-ii) all the analytical models available in the PACS. To use the @liedl2005 model. From that interface, please click on the option **`about`** in the  **Liedl et al (2005)** as shown on the  screenshot (@fig-fig3.1-ii).
 
 ::: {#fig-fig3.1-ii}
 
@@ -89,7 +89,7 @@ fig-alt="Screenshot of liedl2005- simulation interface options"}
 :::
 
 
-***Using Single Computing Model of Liedl et al. (2005) in CAST***
+***Using Single Computing Model of Liedl et al. (2005) in PACS***
 
 The **single computing simulation** interface is activated when it is clicked, bringing the interface as seen in @fig-fig3.1-v.
 
@@ -214,13 +214,13 @@ Once your data _.csv_ is ready, click on **`Choose File`** option, a search and 
 
 ::: {#fig-fig3.1-xi}
 
-![](images/liedl2005/fig3.1-xi.png "Liedl2005 - Providing multiple scenarios data to the CAST interface"){
+![](images/liedl2005/fig3.1-xi.png "Liedl2005 - Providing multiple scenarios data to the PACS interface"){
 width="80%" 
 height="350px" 
 fig-align="center" 
-fig-alt="Screenshot of liedl2005 - Providing multiple scenarios data to the CAST interface"}
+fig-alt="Screenshot of liedl2005 - Providing multiple scenarios data to the PACS interface"}
 
-@liedl2005: Providing multiple scenarios data to the CAST interface
+@liedl2005: Providing multiple scenarios data to the PACS interface
 
 :::
 
@@ -228,7 +228,7 @@ fig-alt="Screenshot of liedl2005 - Providing multiple scenarios data to the CAST
 The user needs to make sure that the file is in the format of the sample dataset. In such cases and in the case where the range or values of parameters don’t match the permitted, system will display an error message (see @fig-fig3.1-xii). You are required to rectify all the issues before uploading again.
 
 ::: {.callout-important}
-The online version of CAST has restricted parameter range. This is required to ensure that calculation and results are displayed with available internet requirements
+The online version of PACS has restricted parameter range. This is required to ensure that calculation and results are displayed with available internet requirements
 
 For the offline version, the range can be set by user themselves.
 :::
@@ -247,18 +247,18 @@ fig-alt="Screenshot of liedl2005 - Error message due to file format or data rang
 
 ***Creating multiple scenarios—online mode***
 
-For limited number of scenario data can be manually entered in the data table. This will require network connection for the online CAST. 
+For limited number of scenario data can be manually entered in the data table. This will require network connection for the online PACS. 
 For adding data _manually,_ click on the **`Add Data`** button as can be seen in screenshot @fig-fig3.1-xiii.
 
 ::: {#fig-fig3.1-xiii}
 
-![](images/liedl2005/fig3.1-xiii.png "Liedl2005 - Manually adding scenario data to CAST"){
+![](images/liedl2005/fig3.1-xiii.png "Liedl2005 - Manually adding scenario data to PACS"){
 width="80%" 
 height="350px" 
 fig-align="center" 
-fig-alt="Screenshot of liedl2005 - Manually adding scenario data to CAST"}
+fig-alt="Screenshot of liedl2005 - Manually adding scenario data to PACS"}
 
-@liedl2005: Manually adding scenario data to CAST
+@liedl2005: Manually adding scenario data to PACS
 
 :::
 

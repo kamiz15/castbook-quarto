@@ -49,11 +49,11 @@ $C_{A}^\circ$ = Partner reactant (Electron Acceptor) concentration [ML$^{-3}$]<b
 
 
 
-## Using Cirpka et al. (2005) model in CAST
+## Using Cirpka et al. (2005) model in PACS
 
 ***Single computing interface***
 
-The CAST user-interface for all the analytical models are identical. This is true for both single computing interface and multiple simulation interface. The identical interface simplifies the use of models in the CAST. Therefore, the extensive details on using the Liedl et al. (2005) model in CAST provided [here](liedl2005.qmd) can be used also for the @cirpka2006.
+The PACS user-interface for all the analytical models are identical. This is true for both single computing interface and multiple simulation interface. The identical interface simplifies the use of models in the PACS. Therefore, the extensive details on using the Liedl et al. (2005) model in PACS provided [here](liedl2005.qmd) can be used also for the @cirpka2006.
 
 The only differences in each model interface are the model specific parameters. This can be observed in the below screenshot (@fig-fig3.4-ii) of the interface of the @cirpka2006 model: 
 
@@ -72,7 +72,7 @@ fig-alt="Screenshot of Cirpka2005-single simulation interface"}
 
 Once the input data is placed in the box, user needs to click on the ``Run Model`` to get the result. Results are obtained as an _absolute number_ above the graph and also graphically (see @fig-fig3.4-iii), which provides the field plume length data from the database. This allows a visual comparison of the model $L_{max}$ with the field data.
 
-As explained in detail in the use of [Liedl et al. (2005)](liedl2005.qmd) model, the resulting graph provides several interactive options to evaluate results. The screenshot below provides the output of the single computing mode of CAST.
+As explained in detail in the use of [Liedl et al. (2005)](liedl2005.qmd) model, the resulting graph provides several interactive options to evaluate results. The screenshot below provides the output of the single computing mode of PACS.
 
 ::: {#fig-fig3.4-iii}
 

@@ -1,6 +1,6 @@
-# 6. AEM Source Designer {.unnumbered}
+# 6. AEM Model {.unnumbered}
 
-The AEM Source Designer represents complex contaminant sources with analytic
+The AEM Model represents complex contaminant sources with analytic
 elements and computes steady-state plume behavior without a spatial transport
 grid.
 

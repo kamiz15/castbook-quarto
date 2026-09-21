@@ -1,9 +1,9 @@
 # i. Model Selection Method {.unnumbered}
 
-**The Model Selection toolbox is not implemented in the CAST yet**. 
+**The Model Selection toolbox is not implemented in the PACS yet**. 
 The most important reason for that is the very limited information available on this subject. The text below outlines some development on the _Model Selection Method,_ and the current progress.
 
-CAST provides several models of different types (analytical, numerical and empirical/hybrid). 
+PACS provides several models of different types (analytical, numerical and empirical/hybrid). 
 The key question then is, which model to start with at a particular site?  
 
 Normally using a model that requires many input parameters may not be the best choice to start modeling works.
@@ -25,4 +25,4 @@ The current works on the _model selection method_ can be visualized by the follo
 
 ![Flow-chart on approach for selecting site-specific decision model.](images/model-selection/fig7-i-01.png){#fig-7-i-01 fig-align="center" width="80%"}
 
-The flow-chart provided above can be fully automated. Furthermore, it can be linked with data toolbox of CAST.
+The flow-chart provided above can be fully automated. Furthermore, it can be linked with data toolbox of PACS.

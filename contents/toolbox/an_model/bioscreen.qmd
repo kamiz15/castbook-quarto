@@ -63,11 +63,11 @@ The model is based on the following assumptions:
 
 ## Model parameters
 
-`Threshold Concentration`- The evaluation of the analytical solution shows, that the contaminant concentration $C \to 0$ for $x \to \infty$. Due to this asymptotical convergence, it is required to provide a threshold concentration, which defines the $L_{max}$ concentration contour level. This threshold should be close to a concentration of 0 or one could also choose value equaling water quality standards. The default value in CAST is set at $5e-5$ mg/l.
+`Threshold Concentration`- The evaluation of the analytical solution shows, that the contaminant concentration $C \to 0$ for $x \to \infty$. Due to this asymptotical convergence, it is required to provide a threshold concentration, which defines the $L_{max}$ concentration contour level. This threshold should be close to a concentration of 0 or one could also choose value equaling water quality standards. The default value in PACS is set at $5e-5$ mg/l.
 
 `Time` - The BIOSCREEN analytical solution is a `transient solution`, which means that the state of the contaminant plume is dependent of time. The interaction of plume growing effects and attenuation processes will often result in a state of equilibrium in which the plume keeps a constant size. It is not possible to define a global valid period after which a steady-state is reached, since this dependes heavily on the hydrogeologic conditions. However, a simple approximation can be used based on the decay within the plume $t=\frac{1}{\Lambda}+5$ [y]. But it is important to note that this approach does **not** guarantee the steady-state of the plume. It is therefore recommended to use a value of at least 20 years (default value).  
 
-`Longitudinal Dispersivity` - is an aquifer parameter which effects the intensity of mixing in the liquid phase along the $x$-axis. The default value used in CAST is 10 m.  
+`Longitudinal Dispersivity` - is an aquifer parameter which effects the intensity of mixing in the liquid phase along the $x$-axis. The default value used in PACS is 10 m.  
 
 `Horizontal Transverse Dispersivity` - effects the mixing intensity of the liquid phase along the $y$-axis. The default value is 1 m  
 
@@ -81,11 +81,11 @@ The model is based on the following assumptions:
 
 `Decay Coefficient` - $\Lambda$ describes the decay of the contaminant within the plume. It occurs due to the same reasons as the source decay, but in addition a stronger degredation comes from oxidation and chemical reactions with other chemical compounds that are available.  
 
-## Solution approach for BIOSCREEN-AT in CAST
+## Solution approach for BIOSCREEN-AT in PACS
 
 The concentration contour for BIOSCREEN-AT (eq. @eq-eqbio2007) includes an integral that has to be numerically solved for obtaining $L_{max}$. The $L_{max}$ in this case is the  _centereline_ maximum longitudinal extend of the selected threshold concentration contour. 
 
-CAST uses [Gauss-Legendre Quadrature](https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_quadrature) to solve for $C(x,y,z)$ using eq. @eq-eqbio2007. The Gauss-Legendre Quadrature method requires specifying the number of sample points (called Gauss points), based on which corresponding specific weights are obtained. The weights are then used to obtain the solution. Generally, higher the Gauss points, the higher the accuracy of the solution. However, higher sample points also means a large number of computations. In CAST Python codes are developed  very identical to the  FORTRAN code provided in @karanovic2007 to solve @eq-eqbio2007) (using Gauss-Legendre Quadrature method). Python library [Scipy](https://docs.scipy.org/doc/scipy/reference/special.html) provides functions for obtaining the roots and weights required by the Gauss-Legendre Quadrature method. 
+PACS uses [Gauss-Legendre Quadrature](https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_quadrature) to solve for $C(x,y,z)$ using eq. @eq-eqbio2007. The Gauss-Legendre Quadrature method requires specifying the number of sample points (called Gauss points), based on which corresponding specific weights are obtained. The weights are then used to obtain the solution. Generally, higher the Gauss points, the higher the accuracy of the solution. However, higher sample points also means a large number of computations. In PACS Python codes are developed  very identical to the  FORTRAN code provided in @karanovic2007 to solve @eq-eqbio2007) (using Gauss-Legendre Quadrature method). Python library [Scipy](https://docs.scipy.org/doc/scipy/reference/special.html) provides functions for obtaining the roots and weights required by the Gauss-Legendre Quadrature method. 
 
 ::: {.callout-note collapse="true" title="Python code for obtaining the Gauss-Legendre roots and weights"}
 ```python
@@ -95,7 +95,7 @@ weights = sp.special.roots_legendre(m)[1]
 :::
 
 
-Following the approach provided in @karanovic2007 the limits of integration of eq. @eq-eqbio2007 is scaled. This is required for speeding up the computation. The codes used in CAST for this purpose can be seen by clicking the _dropdown_ button
+Following the approach provided in @karanovic2007 the limits of integration of eq. @eq-eqbio2007 is scaled. This is required for speeding up the computation. The codes used in PACS for this purpose can be seen by clicking the _dropdown_ button
 
 ::: {.callout-note collapse="true" title="Python code for scaling the limits of integration"}
 ```python
@@ -152,21 +152,21 @@ For that reason the roots and their specific weights of the Legendre polynomial 
 
 ::: {.callout-important title="Number of Gauss Points"}
 
-Number of Gauss points required in computation can be any number. However using 60 is recommended as quite a high level of accuracy can be quickly obtained. This is particularly important for **online** version of CAST. For the **offline** version of CAST >104 is recommended.
+Number of Gauss points required in computation can be any number. However using 60 is recommended as quite a high level of accuracy can be quickly obtained. This is particularly important for **online** version of PACS. For the **offline** version of PACS >104 is recommended.
 
 Using Gauss points $<15$ is not recommended.
 
 :::
 
-## Model results using CAST
+## Model results using PACS
 
-The CAST interface of BIOSCREEN-AT is identical to that for other analytical/empirical models. The details of the interface and available user options can be found at [Liedl et al. (2005)](liedl2005.qmd). Below a very brief outline of the CAST interface specific to BIOSCREEN-AT is provided.
+The PACS interface of BIOSCREEN-AT is identical to that for other analytical/empirical models. The details of the interface and available user options can be found at [Liedl et al. (2005)](liedl2005.qmd). Below a very brief outline of the PACS interface specific to BIOSCREEN-AT is provided.
 
 
 ***Single computing simulation***
 
 First all input data needs to be defined (screenshot @fig-fig3.6-ii). It has to be noted that BIOSCREEN-AT requires significantly higher number of input parameters due to multiple processes considered in the model.
-Then a graph is genereated, that shows the result of the computation in comparison to the field data from the CAST database (screenshot @fig-fig3.6-iii).
+Then a graph is genereated, that shows the result of the computation in comparison to the field data from the PACS database (screenshot @fig-fig3.6-iii).
 
 ::: {#fig-fig3.6-ii}
 
@@ -193,7 +193,7 @@ BIOSCREEN-AT: result interface for single computing
 :::
 
 
-Once the first computation of $L_{max}$ pressing `Run Model` button is made, the CAST interface provides interface with **sliders** bars (@fig-fig3.6-iv) for the most sensible model parameters.
+Once the first computation of $L_{max}$ pressing `Run Model` button is made, the PACS interface provides interface with **sliders** bars (@fig-fig3.6-iv) for the most sensible model parameters.
 
 ::: {#fig-fig3.6-iv}
 
@@ -218,7 +218,7 @@ Numerical computations are used to compute $L_{max}$. As such care has to be tak
 
 ***Multiple computing simulation***
 
-The multiple computing mode can be used to visualize different own case results in one graph, while still being able to compare to the CAST database. The interface for BIOSCREEN-AT is identical to other models. User can check  [Liedl et al. (2005)](liedl2005.qmd) on details of using the **multiple computing interface**.
+The multiple computing mode can be used to visualize different own case results in one graph, while still being able to compare to the PACS database. The interface for BIOSCREEN-AT is identical to other models. User can check  [Liedl et al. (2005)](liedl2005.qmd) on details of using the **multiple computing interface**.
 
 Data in the interface can be inserted via the `add data` button or can be uploaded from a file (@fig-fig3.6-v). A sample file can be downloaded for purposes of correct formatting. It is possible to slect the desired sites to be schown in the graph. 
 

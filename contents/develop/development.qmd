@@ -1,7 +1,7 @@
 # 8. Development {.unnumbered}
 
 This section is for contributors who need to understand, change, test, or
-deploy CAST. It reflects the current application, which uses Flask, Panel,
+deploy PACS. It reflects the current application, which uses Flask, Panel,
 MySQL, MODFLOW 6, and Docker Compose.
 
 The section contains:
@@ -10,4 +10,4 @@ The section contains:
 2. [Technology Stack](code_libraries.qmd)
 3. [Development Workflow](code_develop.qmd)
 
-For installation instructions, begin with [Run CAST locally](../start/run_locally.qmd).
+For installation instructions, begin with [Run PACS locally](../start/run_locally.qmd).

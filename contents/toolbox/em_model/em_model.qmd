@@ -5,11 +5,11 @@ csl: ../groundwater.csl
 ---
 
 
-In CAST the **Hybrid models** are those model that applies a combination of modeling approaches (e.g., analytical and numerical) to often provide a closed-form expression for obtaining, e.g., $L_{max}$.  To distinguish further **hybrid models** are those that are completely based on some form of experimentations. Experiments can be numerical, based on data, or of any other form. In general **hybrid model** will thus require some fit to experimental results to provide solution, which can be a closed-form expression or may require some simple numerical approach (e.g., integration) to obtain the final expression. \
+In PACS the **Hybrid models** are those model that applies a combination of modeling approaches (e.g., analytical and numerical) to often provide a closed-form expression for obtaining, e.g., $L_{max}$.  To distinguish further **hybrid models** are those that are completely based on some form of experimentations. Experiments can be numerical, based on data, or of any other form. In general **hybrid model** will thus require some fit to experimental results to provide solution, which can be a closed-form expression or may require some simple numerical approach (e.g., integration) to obtain the final expression. \
 
-Literature provide only few **hybrid models**. Thus, only **3** empirical models are part of the current version of CAST. These are briefly presented below and explained in details in the respective model simulation sections.
+Literature provide only few **hybrid models**. Thus, only **3** empirical models are part of the current version of PACS. These are briefly presented below and explained in details in the respective model simulation sections.
 
-## Hybrid Models in CAST
+## Hybrid Models in PACS
 Included models are (_see individual model page for details_):
 
 
@@ -38,9 +38,9 @@ where $A_1 - A_6$ and $B_1 - B_6$ are empirical fit parameters (details are prov
 
 
 
-## Computing Interfaces in CAST
+## Computing Interfaces in PACS
 
-The `hybrid model` interface of CAST can be accessed from the CAST [Homepage  - pls. provide the link](www). [Registration/Login](../../start/accounts.qmd) information are required for using Hybrid models. The registration info are for caching data during the computation. Verification of registration information are not performed, i.e., fake or temporary emails can be used.    
+The `hybrid model` interface of PACS can be accessed from the PACS [Homepage  - pls. provide the link](www). [Registration/Login](../../start/accounts.qmd) information are required for using Hybrid models. The registration info are for caching data during the computation. Verification of registration information are not performed, i.e., fake or temporary emails can be used.    
 
 
 ::: {#fig-fig4.0-i}
@@ -63,7 +63,7 @@ Similar to  analytical model toolbox, the following two computing interfaces are
 1. Single computing interface
 2. Multiple computing interface
 
-Details on these interfaces, which is identical to the interface for `analytical models` are provided [here - pls. check the link](../an_model/an_model.qmd). The screenshot provides the CAST interface to select a hybrid model.
+Details on these interfaces, which is identical to the interface for `analytical models` are provided [here - pls. check the link](../an_model/an_model.qmd). The screenshot provides the PACS interface to select a hybrid model.
 
 ::: {#fig-fig4.0-ii}
 

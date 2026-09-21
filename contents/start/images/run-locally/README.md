@@ -1,6 +1,6 @@
-# Run CAST locally figure staging
+# Run PACS locally figure staging
 
-Add future screenshots for the Run CAST locally chapter to this directory.
+Add future screenshots for the Run PACS locally chapter to this directory.
 
 Reserved filenames:
 

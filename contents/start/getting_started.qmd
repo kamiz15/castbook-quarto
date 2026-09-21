@@ -1,10 +1,10 @@
 # 1. Getting Started {.unnumbered}
 
-This section explains how to prepare and use CAST before working with its
+This section explains how to prepare and use PACS before working with its
 scientific toolboxes.
 
 The section contains:
 
-1. [Run CAST locally](run_locally.qmd)
+1. [Run PACS locally](run_locally.qmd)
 2. [Accounts and logging in](accounts.qmd)
-3. [Navigating CAST](navigating.qmd)
+3. [Navigating PACS](navigating.qmd)

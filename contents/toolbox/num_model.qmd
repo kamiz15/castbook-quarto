@@ -1,29 +1,29 @@
 # i. MODFLOW and MT3DMS Numerical Model {.unnumbered}
 ## Model Description
-The numerical model in the CAST is based on the conceptual work presented in [Yadav et al. (2014)](des_num). The 2D numerical domain is vertically orineted and follows the assumptions similar to that provided in [Liedl et al., (2005,)](des_num), e.g., homogeneous, isotropic, steady-state and bi-component (Electron Donor or contaminant concentation $C_{ED}$ and Electron Acceptor or the partner reactant concentration $C_{EA}$) instantaneous reaction (see [Liedl et al., 2005](des_num) Analytical Model of the CAST- **to be linked**).  
+The numerical model in the PACS is based on the conceptual work presented in [Yadav et al. (2014)](des_num). The 2D numerical domain is vertically orineted and follows the assumptions similar to that provided in [Liedl et al., (2005,)](des_num), e.g., homogeneous, isotropic, steady-state and bi-component (Electron Donor or contaminant concentation $C_{ED}$ and Electron Acceptor or the partner reactant concentration $C_{EA}$) instantaneous reaction (see [Liedl et al., 2005](des_num) Analytical Model of the PACS- **to be linked**).  
 
 ![Numerical model conceptual set-up](images/numerical/fig5-i-01.png){#fig-5-i-01 fig-align="center" width="60%"}
   
 **MODFLOW** and **MT3DMS** are used in the simulation, which provides contour of a transformed concentration, $C(x,z)$. The transformed concentration, based on Yadav et al. (2014), enables simulation of reactive system ($C_{ED}$ and $C_{EA}$) as a conservative system. The maximum plume length ($L_{max}$) is then the distance between the source (the left edge of the domain) and the largest distance of the chosen threshold concentration (e.g., $C=0$) along $x$-axis.  
   
-Complete details of **MODFLOW** used for flow simulations from [here](https://www.usgs.gov/software/modflow-2005-usgs-three-dimensional-finite-difference-ground-water-model), and that of the **MT3DMS** required for transport simulations can be obtained from [here](https://hydro.geo.ua.edu/). Furthermore, FloPy (see [here](https://www.usgs.gov/software/flopy-python-package-creating-running-and-post-processing-modflow-based-models)) is used for implementing numerical model in CAST interface.
+Complete details of **MODFLOW** used for flow simulations from [here](https://www.usgs.gov/software/modflow-2005-usgs-three-dimensional-finite-difference-ground-water-model), and that of the **MT3DMS** required for transport simulations can be obtained from [here](https://hydro.geo.ua.edu/). Furthermore, FloPy (see [here](https://www.usgs.gov/software/flopy-python-package-creating-running-and-post-processing-modflow-based-models)) is used for implementing numerical model in PACS interface.
 
 
-## Implementation in CAST
+## Implementation in PACS
 
-The code snippets below show calling of MODFLOW and MT3DMS executables in CAST. For **OFFLINE** CAST users have to link these executables as they exist in their system. Note the _double backslash (\\)_ used in assigning the directory. This has to be followed as it is required by the Python Programming standard.
+The code snippets below show calling of MODFLOW and MT3DMS executables in PACS. For **OFFLINE** PACS users have to link these executables as they exist in their system. Note the _double backslash (\\)_ used in assigning the directory. This has to be followed as it is required by the Python Programming standard.
 
 ```python
-    exe_name_mf = copy('C:\\Users\\VB\\Desktop\\Personal-code\\CAST\\mf2005.exe', path)
-    exe_name_mt = copy('C:\\Users\\VB\\Desktop\\Personal-code\\CAST\\mt3dms.exe', path)
+    exe_name_mf = copy('C:\\Users\\VB\\Desktop\\Personal-code\\PACS\\mf2005.exe', path)
+    exe_name_mt = copy('C:\\Users\\VB\\Desktop\\Personal-code\\PACS\\mt3dms.exe', path)
 ```
 
-The above code is in CAST directory:
+The above code is in PACS directory:
 ``numerical_models.py``
 
-The standard method of simulating Transport problems using MODFLOW/MT3DMS is also used in CAST. In the (standard) approach, **flow** simulations using MODFLOW is simulated first. The **transport** simulation is followed after the successful simulation of flow simulation. 
+The standard method of simulating Transport problems using MODFLOW/MT3DMS is also used in PACS. In the (standard) approach, **flow** simulations using MODFLOW is simulated first. The **transport** simulation is followed after the successful simulation of flow simulation. 
 
-The code snippet below shows the implementation of **flow** simulation in CAST. Complete source-code is accessible from [here](https://github.com/kamiz15/Groundwater-Contamination-Website/blob/main/numerical_models.py).
+The code snippet below shows the implementation of **flow** simulation in PACS. Complete source-code is accessible from [here](https://github.com/kamiz15/Groundwater-Contamination-Website/blob/main/numerical_models.py).
 
 ```python 
 
@@ -71,7 +71,7 @@ The following section provides an overview over all required parameters for the 
 **`Number of Rows`** - specifies the amount of cells which the domain is divided into, along the vertical axis. Since the model result is strongly influenced by the vertical discretization, a cell width of 0.1 m is recommended to obtain accurate results.  
 **`Number of Colums`** - specifies the amount of cells which the domain is divided into, along the x-axis. A cell length of 10 m was found to be optimal for the purposes of both accuracy and efficiency.  
 
-@fig-5-i-02 provides the screenshot of system parameters input interface of the CAST.
+@fig-5-i-02 provides the screenshot of system parameters input interface of the PACS.
 
 ![Numerical model system parameters](images/numerical/fig5-i-02.png){#fig-5-i-02 fig-align="center" width="40%"}
 
@@ -96,14 +96,14 @@ $$i=\frac{Head\ outlet - Head\ inlet}{Length}$$
 **`Stoichiometric Ratio`** - is dependent on the contaminant chemical form, e.g., Benzene, and its reaction partner, e.g., Oxygen. It defines the ratio of consumption of each compound when reacting. This value, a constant, can be found tabulated in standard chemistry book.
 
 
-@fig-5-i-03 provides the screenshot of hydraulic and chemical parameters input interface of the CAST.
+@fig-5-i-03 provides the screenshot of hydraulic and chemical parameters input interface of the PACS.
 
 ![Numerical model hydraulic and chemical parameters](images/numerical/fig5-i-03.png){#fig-5-i-03 fig-align="center" width="40%"}
 
 ## Model Output
 The model output is given as the maximum plume length as well as a plot of the plume fringe within the two-dimensional vertical domain. The area under the curve represents the contaminant plume, where the concentration of the $C_{ED}$ dominates. The area above the curve is dominated by the $C_{EA}$, where no contamination is found. $L_{max}$ is the maximum extent of $C_{ED}= C_{EA}$ curve.
 
-@fig-5-i-04 provides the screenshot of the model output from CAST.
+@fig-5-i-04 provides the screenshot of the model output from PACS.
 
 The obtained output can be saved as a *.png* file.
 

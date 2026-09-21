@@ -21,13 +21,13 @@ $C_{EA}$ = Partner Reactant (Electron Acceptor) concentration [ML$^{-3}$]
 
  U.Maier , P.Grathwohl 2005 . Numerical experiments and field results on the size of steady state plumes. https://doi.org/10.1016/j.jconhyd.2005.12.012
 
-### Using Maier and Grathwohl (2006) model in CAST
+### Using Maier and Grathwohl (2006) model in PACS
 
 ### Single computing interface
 
-The CAST user-interface for Both the empirical models are identical. This is true for both single computing interface and multiple simulation interface. The identical interface simplifies the use of models in the CAST. Therefore, the extensive details on using the  [Liedl et al. (2005)](refli2005)  model in CAST provided [here](refli) can be used also for the Maier and Grathwohl (2006).
+The PACS user-interface for Both the empirical models are identical. This is true for both single computing interface and multiple simulation interface. The identical interface simplifies the use of models in the PACS. Therefore, the extensive details on using the  [Liedl et al. (2005)](refli2005)  model in PACS provided [here](refli) can be used also for the Maier and Grathwohl (2006).
 
-The difference in each model interface is the model specific parameters. This can be observed in the CAST screenshot below: 
+The difference in each model interface is the model specific parameters. This can be observed in the PACS screenshot below: 
 
 Image MG_1:
 
@@ -35,7 +35,7 @@ Once the input data is placed in the box, user needs to click on the **`Generate
 
 
 
-As explained in detail in [Liedl et al. (2005)](refli2005)  model , the resulting graph provides several interactive options to evaluate results. The screenshot below provides the output of the single computing mode of CAST.
+As explained in detail in [Liedl et al. (2005)](refli2005)  model , the resulting graph provides several interactive options to evaluate results. The screenshot below provides the output of the single computing mode of PACS.
 
 Image:
 

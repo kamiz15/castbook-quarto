@@ -41,11 +41,11 @@ $C_{A}^\circ$ = Partner Reactant (Electron Acceptor) concentration [ML$^{-3}$]<b
 2. An `instantaneous` reaction between an injected compound and a reactant in the ambient groundwater at the plume fringe.
 3. The domain in homogeneous, isotropic and fully saturated.
 
-## Using Ham et al. (2004) model in CAST
+## Using Ham et al. (2004) model in PACS
 
 ***Single computing interface***
 
-The CAST user-interface for all analytical models are identical for both single computing interface and multiple simulation interfaces. This simplifies the use of models in the CAST. Therefore, the extensive details on using the @liedl2005 model in CAST provided [here](liedl2005.qmd) can also be used also for the @ham2004 model.
+The PACS user-interface for all analytical models are identical for both single computing interface and multiple simulation interfaces. This simplifies the use of models in the PACS. Therefore, the extensive details on using the @liedl2005 model in PACS provided [here](liedl2005.qmd) can also be used also for the @ham2004 model.
 
 The only differences in each model interface are the model specific parameters. This can be observed in the below screenshot of the interface of the @ham2004 model: 
 

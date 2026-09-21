@@ -2,10 +2,10 @@
 
 ## Web Application and Interface
 
-CAST uses **Python 3.11** in its Docker image. The application is split between
+PACS uses **Python 3.11** in its Docker image. The application is split between
 two Python web processes:
 
-| Technology | Use in CAST |
+| Technology | Use in PACS |
 |---|---|
 | **Flask 3** | Website routes, authentication, site data, model wrapper pages, and report endpoints. |
 | **Flask-Login** and **Werkzeug** | User sessions and password hashing. |
@@ -28,7 +28,7 @@ Future location: **contents/develop/images/code-libraries/fig8-ii-01.png**
 
 ## Scientific and Data Libraries
 
-| Technology | Use in CAST |
+| Technology | Use in PACS |
 |---|---|
 | **NumPy** and **SciPy** | Numerical arrays, scientific functions, interpolation, integration, and equation solving. |
 | **Pandas** | Tabular input, scenario data, CSV processing, and result preparation. |
@@ -55,7 +55,7 @@ Future location: **contents/develop/images/code-libraries/fig8-ii-02.png**
 
 ## Database and Deployment
 
-CAST uses **MySQL 8.4** in Docker and connects with
+PACS uses **MySQL 8.4** in Docker and connects with
 **mysql-connector-python**. **data_queries.py** defines the active runtime
 schema. **db_setup.sql** must mirror that schema so a new Compose database is
 initialized consistently.

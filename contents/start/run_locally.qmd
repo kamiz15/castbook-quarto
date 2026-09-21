@@ -1,26 +1,26 @@
-# i. Run CAST locally {.unnumbered}
+# i. Run PACS locally {.unnumbered}
 
-## What a local CAST installation provides
+## What a local PACS installation provides
 
-Most users can work with CAST through the hosted website without installing
+Most users can work with PACS through the hosted website without installing
 anything. A local installation is useful when you need:
 
-- a private CAST instance for teaching or demonstrations;
+- a private PACS instance for teaching or demonstrations;
 - access when the hosted website is unavailable;
-- a development environment for changing or testing CAST; or
+- a development environment for changing or testing PACS; or
 - local control of the database and generated model results.
 
 The recommended local installation uses Docker Compose. Docker builds and runs
-the complete CAST stack as four coordinated services:
+the complete PACS stack as four coordinated services:
 
 | Service | Purpose |
 |---|---|
 | **nginx** | Provides the single browser entry point at **http://localhost**. |
-| **flask** | Serves the CAST website, authentication, database pages, and model routes. |
+| **flask** | Serves the PACS website, authentication, database pages, and model routes. |
 | **panel** | Serves the interactive model dashboards behind the Nginx proxy. |
 | **db** | Runs MySQL and stores user accounts and site data in a persistent Docker volume. |
 
-The CAST Docker image also installs MODFLOW 6. You do not need to install
+The PACS Docker image also installs MODFLOW 6. You do not need to install
 Python, MySQL, Panel, or MODFLOW directly on the host computer when you use this
 method.
 
@@ -35,7 +35,7 @@ Future location: **contents/start/images/run-locally/fig1-i-01.png**
 
 ## Install and verify the prerequisites
 
-Install the following software before downloading CAST:
+Install the following software before downloading PACS:
 
 1. **Git**, used to download and update the source code.
 2. **Docker with Docker Compose v2**.
@@ -76,7 +76,7 @@ terminal showing successful output from the four prerequisite checks.
 Future location: **contents/start/images/run-locally/fig1-i-02.png**
 :::
 
-## Download the CAST source code
+## Download the PACS source code
 
 Choose a parent directory in which the new **cast** folder should be created.
 Then clone the application repository:
@@ -107,7 +107,7 @@ instead.
 ::: {.callout-note appearance=simple icon=false}
 **[SC] Figure placeholder: fig1-i-03.png**
 
-Suggested screenshot: the terminal after cloning CAST and entering the **cast**
+Suggested screenshot: the terminal after cloning PACS and entering the **cast**
 directory, with the required files visible.
 
 Future location: **contents/start/images/run-locally/fig1-i-03.png**
@@ -115,7 +115,7 @@ Future location: **contents/start/images/run-locally/fig1-i-03.png**
 
 ## Configure the local environment
 
-CAST keeps secrets and machine-specific values in a file named **.env**. This
+PACS keeps secrets and machine-specific values in a file named **.env**. This
 file is intentionally excluded from Git, which helps prevent passwords and
 session keys from being committed to the repository.
 
@@ -164,8 +164,8 @@ Do not copy the example values above unchanged. The purpose of each setting is:
 | Variable | What it controls | Recommended local value |
 |---|---|---|
 | **SECRET_KEY** | Signs login sessions and security tokens. | A stable random value containing at least 32 random bytes. |
-| **DB_USER** | Names the MySQL account used by CAST. | A simple name such as **cast_user**. |
-| **DB_PASSWORD** | Protects the MySQL account used by CAST. | A long password that is different from the root password. |
+| **DB_USER** | Names the MySQL account used by PACS. | A simple name such as **cast_user**. |
+| **DB_PASSWORD** | Protects the MySQL account used by PACS. | A long password that is different from the root password. |
 | **MYSQL_ROOT_PASSWORD** | Protects the MySQL administrative account. | A second long password used only for database administration. |
 
 The safest approach is to create the values with a password manager. If Python
@@ -197,7 +197,7 @@ The two files have different roles:
 - **.env** contains your private values. Docker Compose reads it for variable
   substitution. Do not commit or share this file.
 - **.env.docker** contains tracked, non-secret settings for the container
-  network. It tells CAST to use the **db** service, serve Panel through
+  network. It tells PACS to use the **db** service, serve Panel through
   **/panel**, use plain HTTP cookies on localhost, and use the MODFLOW 6
   executable installed inside the image.
 
@@ -261,7 +261,7 @@ completes successfully.
 Future location: **contents/start/images/run-locally/fig1-i-05.png**
 :::
 
-## Build and start CAST
+## Build and start PACS
 
 From the repository root, run:
 
@@ -272,7 +272,7 @@ docker compose up --build -d
 The options have the following meanings:
 
 - **up** creates and starts the services.
-- **--build** builds the CAST image from the current source code.
+- **--build** builds the PACS image from the current source code.
 - **-d** leaves the services running in the background.
 
 The first build can take several minutes. Docker downloads the base images,
@@ -316,7 +316,7 @@ Future location: **contents/start/images/run-locally/fig1-i-06.png**
 ::: {.callout-note appearance=simple icon=false}
 **[SC] Figure placeholder: fig1-i-07.png**
 
-Suggested screenshot: **docker compose ps** showing all four CAST services
+Suggested screenshot: **docker compose ps** showing all four PACS services
 running and healthy.
 
 Future location: **contents/start/images/run-locally/fig1-i-07.png**
@@ -335,7 +335,7 @@ service.
 
 Complete this first-run check:
 
-1. Confirm that the CAST home page loads.
+1. Confirm that the PACS home page loads.
 2. Select **Sign Up** and register a local account.
 3. Log in with the new account.
 4. Open the site database.
@@ -351,15 +351,15 @@ a separate solver installation.
 ::: {.callout-note appearance=simple icon=false}
 **[SC] Figure placeholder: fig1-i-08.png**
 
-Suggested screenshot: the CAST home page at **http://localhost** after a
+Suggested screenshot: the PACS home page at **http://localhost** after a
 successful local start.
 
 Future location: **contents/start/images/run-locally/fig1-i-08.png**
 :::
 
-## Stop, restart, and update CAST
+## Stop, restart, and update PACS
 
-***Stop CAST without deleting data***
+***Stop PACS without deleting data***
 
 ~~~bash
 docker compose down
@@ -387,7 +387,7 @@ docker compose up --build -d
 docker compose restart
 ~~~
 
-***Update CAST from GitHub***
+***Update PACS from GitHub***
 
 First make sure any local code changes are committed or backed up. Then run:
 
@@ -438,7 +438,7 @@ docker compose logs --tail 200 flask
 MySQL uses **DB_USER**, **DB_PASSWORD**, and **MYSQL_ROOT_PASSWORD** when the
 database volume is created for the first time. Changing those values later does
 not automatically change accounts inside an existing database. Restore the
-previous values, or update the MySQL account deliberately before changing CAST
+previous values, or update the MySQL account deliberately before changing PACS
 to use a new password. Do not delete the database volume unless losing its data
 is acceptable.
 

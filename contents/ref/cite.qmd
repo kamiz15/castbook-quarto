@@ -1,7 +1,7 @@
-# i. Cite CAST {.unnumbered}
+# i. Cite PACS {.unnumbered}
 
 
-CAST is an open-source project and therefore many have contributed with different aspects of its development. The order in which **names** are mentioned below do not follow any contribution level order. 
+PACS is an open-source project and therefore many have contributed with different aspects of its development. The order in which **names** are mentioned below do not follow any contribution level order. 
 
 ## Publication
 
@@ -55,7 +55,7 @@ CAST is an open-source project and therefore many have contributed with differen
 
 ## Organizational Support
 
-The following organization is supporting CAST:
+The following organization is supporting PACS:
 
 1. Dresden University of Technology (TUD)
 2. Indian Institute of Technolog Delhi (IITD)
