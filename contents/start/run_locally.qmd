@@ -104,15 +104,6 @@ clone of the repository. Enter the existing directory with **cd cast**, check
 that your work is saved, and use the update procedure in subsection vii
 instead.
 
-::: {.callout-note appearance=simple icon=false}
-**[SC] Figure placeholder: fig1-i-03.png**
-
-Suggested screenshot: the terminal after cloning PACS and entering the **cast**
-directory, with the required files visible.
-
-Future location: **contents/start/images/run-locally/fig1-i-03.png**
-:::
-
 ## Configure the local environment
 
 PACS keeps secrets and machine-specific values in a file named **.env**. This
