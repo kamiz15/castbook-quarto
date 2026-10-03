@@ -5,7 +5,7 @@ PACS is an open-source project and therefore many have contributed with differen
 
 ## Publication
 
-1. P. K. Yadav, A. V. Köhler, A. Yadav, K. Ziza, M. Tripathi and S. Sreelekshmi, Initial assessment of contaminated site using multiple, Environmental Modelling and Software (Submitted for publication)
+1. P. K. Yadav, A. V. Köhler, A. Yadav, K. Ziza, M. Tripathi and S. Sreelekshmi, Initial assessment of contaminated site using multiple models, Environmental Modelling and Software (Submitted for publication)
 
 
 ## Core Code Development and Documentation
