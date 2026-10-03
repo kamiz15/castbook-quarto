@@ -1,67 +1,43 @@
 # i. Cite PACS {.unnumbered}
 
 
-PACS is an open-source project and therefore many have contributed with different aspects of its development. The order in which **names** are mentioned below do not follow any contribution level order. 
+PACS is an open-source project and therefore many have contributed with different aspects of its development. The order in which **names** are mentioned below do not follow any contribution level order.
 
 ## Publication
 
-1. Yadav, P. K., Birla, S., Baliga, V., Liedl, R. Chahar, B. R., and Werth, C., Contamination Assessment and Site-management Tool (CAST) - A browser-based tool for site assessment, Groundwater (in revision) <br><br>
-   
-2. Birla, S., Baliga, V., Yadav, P. K., Soni, V., Liedl, R., and Chahar, B. R.,  A browser-based user interface for the estimation of steady state plume lengths. FHDGG- 2020 Conference.
+1. P. K. Yadav, A. V. Köhler, A. Yadav, K. Ziza, M. Tripathi and S. Sreelekshmi, Initial assessment of contaminated site using multiple, Environmental Modelling and Software (Submitted for publication)
 
 
-## Core Code Development
+## Core Code Development and Documentation
 
-1. Dr. P. K Yadav (TUD)<sup>1,3</sup>
-2. Ms. V. Baliga (MUJ)<sup>2</sup>
-3. Mr. A. Köhler (TUD)<sup>1</sup>
-4. Mr. A. Kumar(from NIT Trichy, India.)<sup>1</sup>
-5. Prof. R. Liedl (TUD)<sup>3</sup>
+1. P. K. Yadav
+2. A. V. Köhler
+3. A. Yadav
+4. K. Ziza
+5. M. Tripathi
+6. S. Sreelekshmi
+7. And Others
 
-<sup>1</sup>Code contributor, <sup>2</sup> Main code developer and interface concept, <sup>3</sup> Conceptualization
-
-## Supervision, Evaluation, and Support
-
-1. Prof. B. R. Chahar (IITD)
-2. Prof. R. Liedl (TUD)
-3. Prof. C. Werth (UT-Austin)
-4. Ms.   S. Birla (IITD)
-5. Ms.   I. Wani (IITD)
-
-
-## Documentation
-
-1. Dr. P. K. Yadav (TUD)
-2. Mr. K. Aryal (TUD)
-3. Mr. A. Köhler (TUD)
-4. Ms. V. Baliga (MUJ/IITD)
-5. Ms. I. Wani (IITD)
 
 ## Online Implementation
 
-1. Ms. V. Baliga (MUJ/IITD)
+1. K. Ziza
 
 
 ## Funding Support
 
-1. Partially through DFG fund (LI 727/29-1)   
+1. Partially through DFG fund (YA 945/1-1, GR 971/37-1, and DI 833/27-1)
 
 ![](images/cite/fig9-i-01.png){#fig-9-i-01 fig-align="left" width="40%"}
-
-2. Funding through:</br>
-     1. Professional Development Fund of Prof B R Chahar</br>
-     2. Ministry of Water Resources, Govt of India
 
 
 ## Organizational Support
 
-The following organization is supporting PACS:
+The following organizations are supporting PACS:
 
-1. Dresden University of Technology (TUD)
-2. Indian Institute of Technolog Delhi (IITD)
-3. University of Texas Austin (UT-Austin)
-4. Manipal University Jaipur (MUJ)<sup>*</sup>
+1. University of Tuebingen, Tuebingen, Germany
+2. University of Waterloo, Waterloo, Canada
+3. Indian Institute of Technology Delhi (IITD)
+4. Constructor University
 
-<sup>*</sup> _initial development_
-
-![](images/cite/fig9-i-02.png){#fig-9-i-02 fig-align="center" width="60%"}
+![](images/cite/fig9-i-02.png){#fig-9-i-02 fig-align="center" width="85%"}
