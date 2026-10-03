@@ -1,6 +1,6 @@
 ---
 title: Maier and Grathwohl (2006) model
-bibliography: ../cast2.bib
+bibliography: ../pacs.bib
 csl: ../groundwater.csl
 ---
 

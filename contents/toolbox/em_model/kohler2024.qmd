@@ -1,6 +1,6 @@
 ---
 title: Köhler et al. (2024) model
-bibliography: ../cast2.bib
+bibliography: ../pacs.bib
 csl: ../groundwater.csl
 ---
 

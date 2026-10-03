@@ -64,8 +64,8 @@ book:
 format:
   html:
     theme:
-      light: cast.scss
-      dark: cast-dark.scss
+      light: pacs.scss
+      dark: pacs-dark.scss
     number-sections: true
     toc: true
     fig-align: center
