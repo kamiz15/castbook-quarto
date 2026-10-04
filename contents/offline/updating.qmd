@@ -1,6 +1,0 @@
-## Updating OFFLINE PACS 
-
-For updating the offline version of PACS : 
-
-* `git pull` in the *PACS* folder
-* run the command `python3 create_database.py` 
